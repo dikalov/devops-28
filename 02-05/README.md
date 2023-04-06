@@ -37,5 +37,10 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 7
 ### Соберите mdadm RAID0 на второй паре маленьких разделов.
+![image](https://user-images.githubusercontent.com/126553776/230462339-54409365-582b-44d0-a29e-8718bab9a988.png)
+
+## Задание 8
+### Создайте два независимых PV на получившихся md-устройствах.
+
 
 
