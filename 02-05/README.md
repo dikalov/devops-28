@@ -41,6 +41,13 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 8
 ### Создайте два независимых PV на получившихся md-устройствах.
+![image](https://user-images.githubusercontent.com/126553776/230463349-e1bb9a18-9f87-4b0f-a45d-5a426bc823b5.png)
 
+## Задание 9
+### Создайте общую volume-group на этих двух PV.
+![image](https://user-images.githubusercontent.com/126553776/230464715-7088cf87-713e-499b-b2a7-7944cc52f105.png)
+
+## Задание 10
+### Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.
 
 
