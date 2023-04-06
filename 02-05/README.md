@@ -49,5 +49,9 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 10
 ### Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.
+![image](https://user-images.githubusercontent.com/126553776/230469269-bbd00226-ad0f-4a7b-a87b-f5bb7552c07e.png)
+
+## Задание 11
+### Создайте mkfs.ext4 ФС на получившемся LV.
 
 
