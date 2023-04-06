@@ -26,4 +26,10 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ![image](https://user-images.githubusercontent.com/126553776/230452011-e3e54447-f18f-4a96-9537-13544bded998.png)
 ## Задание 5
 ### Используя sfdisk, перенесите эту таблицу разделов на второй диск.
+![image](https://user-images.githubusercontent.com/126553776/230453739-3ff3f280-675e-4e8e-8567-e5cbcbd06feb.png)
+
+![image](https://user-images.githubusercontent.com/126553776/230453868-d8595504-42f3-43e7-ae42-36b49a389843.png)
+## Задание 6
+### Соберите mdadm RAID1 на паре разделов 2 Гб.
+
 
