@@ -31,5 +31,10 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ![image](https://user-images.githubusercontent.com/126553776/230453868-d8595504-42f3-43e7-ae42-36b49a389843.png)
 ## Задание 6
 ### Соберите mdadm RAID1 на паре разделов 2 Гб.
+![image](https://user-images.githubusercontent.com/126553776/230457170-9128a99a-b458-4f1b-a0c3-456d109828d1.png)
+
+Команда создает массив RAID 1 с именем `/dev/md0` из двух устройств: `/dev/sdb1` и `/dev/sdc1`. Опция `--level=1` указывает уровень RAID, а `--raid-devices=2` указывает количество устройств в массиве. `/dev/sd[bc]1` указывает на использование разделов `/ dev / sdb1` и `/ dev / sdc1`.
+## Задание 7
+### Соберите mdadm RAID0 на второй паре маленьких разделов.
 
 
