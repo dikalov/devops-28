@@ -23,4 +23,7 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ![image](https://user-images.githubusercontent.com/126553776/230445360-a473eaaa-c7f1-4249-a71c-4de456884f0a.png)
 ## Задание 4
 ### Используя fdisk, разбейте первый диск на два раздела: 2 Гб и оставшееся пространство.
+![image](https://user-images.githubusercontent.com/126553776/230452011-e3e54447-f18f-4a96-9537-13544bded998.png)
+## Задание 5
+### Используя sfdisk, перенесите эту таблицу разделов на второй диск.
 
