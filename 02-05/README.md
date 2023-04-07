@@ -67,6 +67,8 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ### Смонтируйте этот раздел в любую директорию, например, /tmp/new.
 ![image](https://user-images.githubusercontent.com/126553776/230545212-97df9316-9123-4d83-a41b-7967015543a8.png)
 
+Команда `mount /dev/volume-group/vgroup /tmp/new/` используется для монтирования файловой системы, которая находится на логическом томе `/dev/volume-group/vgroup`, в каталог `/tmp/new/`.
+
 ## Задание 13
 ### Поместите туда тестовый файл, например, wget https://mirror.yandex.ru/ubuntu/ls-lR.gz -O /tmp/new/test.gz.
 ![image](https://user-images.githubusercontent.com/126553776/230546025-7b820175-7ff3-44eb-9bca-c33c1f63b6e1.png)
