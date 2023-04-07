@@ -57,4 +57,17 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 12
 ### Смонтируйте этот раздел в любую директорию, например, /tmp/new.
+![image](https://user-images.githubusercontent.com/126553776/230545212-97df9316-9123-4d83-a41b-7967015543a8.png)
+
+## Задание 13
+### Поместите туда тестовый файл, например, wget https://mirror.yandex.ru/ubuntu/ls-lR.gz -O /tmp/new/test.gz.
+![image](https://user-images.githubusercontent.com/126553776/230546025-7b820175-7ff3-44eb-9bca-c33c1f63b6e1.png)
+
+## Задание 14
+### Прикрепите вывод lsblk.
+![image](https://user-images.githubusercontent.com/126553776/230546515-b86ec6b3-3d8d-4a5e-8a4e-db670c93289a.png)
+
+## Задание 15
+### Протестируйте целостность файла:
+
 
