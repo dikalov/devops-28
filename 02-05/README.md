@@ -69,5 +69,13 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 15
 ### Протестируйте целостность файла:
+![image](https://user-images.githubusercontent.com/126553776/230547196-fda50fc5-adb6-4af6-810b-bca50017753b.png)
+
+## Задание 16
+### Используя pvmove, переместите содержимое PV с RAID0 на RAID1.
+![image](https://user-images.githubusercontent.com/126553776/230548005-7682dc51-c379-4073-8ec2-b58cb1b63ced.png)
+
+## Задание 17
+### Сделайте --fail на устройство в вашем RAID1 md.
 
 
