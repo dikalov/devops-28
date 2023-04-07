@@ -77,5 +77,10 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 17
 ### Сделайте --fail на устройство в вашем RAID1 md.
+![image](https://user-images.githubusercontent.com/126553776/230552462-9014ccb2-8577-4ae6-95e8-a5db09880961.png)
+
+## Задание 18
+### Подтвердите выводом dmesg, что RAID1 работает в деградированном состоянии.
+
 
 
