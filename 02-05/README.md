@@ -103,6 +103,12 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ### Протестируйте целостность файла — он должен быть доступен несмотря на «сбойный» диск:
 ![image](https://user-images.githubusercontent.com/126553776/230552918-445af573-7b0f-4479-b07e-a223afe767b0.png)
 
+## Задание 20
+### Погасите тестовый хост — vagrant destroy.
+C:\Users\dikalovdg\devops-netology\vagrant>vagrant destroy
 
+default: Are you sure you want to destroy the 'default' VM? [y/N] y
 
+==> default: Forcing shutdown of VM...
 
+==> default: Destroying VM and associated drives...
