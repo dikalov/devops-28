@@ -61,6 +61,8 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ### Создайте mkfs.ext4 ФС на получившемся LV.
 ![image](https://user-images.githubusercontent.com/126553776/230543231-01f76dff-a1b9-4f05-8b75-397b3af42389.png)
 
+Команда `mkfs.ext4 /dev/volume-group/vgroup` используется для создания файловой системы ext4 на логическом томе `/dev/volume-group/vgroup`. Эта команда форматирует логический том и создает на нем файловую систему, которая может быть использована для хранения файлов и данных.
+
 ## Задание 12
 ### Смонтируйте этот раздел в любую директорию, например, /tmp/new.
 ![image](https://user-images.githubusercontent.com/126553776/230545212-97df9316-9123-4d83-a41b-7967015543a8.png)
