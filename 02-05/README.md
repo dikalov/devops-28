@@ -43,6 +43,8 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ### Создайте два независимых PV на получившихся md-устройствах.
 ![image](https://user-images.githubusercontent.com/126553776/230463349-e1bb9a18-9f87-4b0f-a45d-5a426bc823b5.png)
 
+Команда `pvcreate /dev/md0 /dev/md1` используется для создания физических томов (physical volumes) на двух устройствах `/dev/md0` и `/dev/md1`. Физические тома используются в LVM (Logical Volume Manager) для логического объединения нескольких физических дисков в один большой том. Команда `pvcreate` создает метаданные на выбранных устройствах, которые затем могут быть использованы для создания логических томов (logical volumes).
+
 ## Задание 9
 ### Создайте общую volume-group на этих двух PV.
 ![image](https://user-images.githubusercontent.com/126553776/230464715-7088cf87-713e-499b-b2a7-7944cc52f105.png)
