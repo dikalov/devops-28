@@ -55,6 +55,8 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ### Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.
 ![image](https://user-images.githubusercontent.com/126553776/230469269-bbd00226-ad0f-4a7b-a87b-f5bb7552c07e.png)
 
+Команда `lvcreate -L 100m -n vgroup volume-group /dev/md1` создает новый логический том (logical volume) с именем `vgroup` в группе томов (volume group) `volume-group` на физическом томе `/dev/md1`. Опция `-L` задает размер нового логического тома. В данном случае, размер равен 100 мегабайтам. Опция `-n` указывает имя нового логического тома. 
+
 ## Задание 11
 ### Создайте mkfs.ext4 ФС на получившемся LV.
 ![image](https://user-images.githubusercontent.com/126553776/230543231-01f76dff-a1b9-4f05-8b75-397b3af42389.png)
