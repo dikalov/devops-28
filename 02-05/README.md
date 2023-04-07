@@ -53,4 +53,8 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 11
 ### Создайте mkfs.ext4 ФС на получившемся LV.
+![image](https://user-images.githubusercontent.com/126553776/230543231-01f76dff-a1b9-4f05-8b75-397b3af42389.png)
+
+## Задание 12
+### Смонтируйте этот раздел в любую директорию, например, /tmp/new.
 
