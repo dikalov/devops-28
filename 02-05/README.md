@@ -81,6 +81,12 @@ dd if=/dev/zero of=output5 bs=1G count=4
 
 ## Задание 18
 ### Подтвердите выводом dmesg, что RAID1 работает в деградированном состоянии.
+![image](https://user-images.githubusercontent.com/126553776/230552695-10472c2c-6cef-49c6-8dff-403f54b7b4ee.png)
+
+## Задание 19
+### Протестируйте целостность файла — он должен быть доступен несмотря на «сбойный» диск:
+![image](https://user-images.githubusercontent.com/126553776/230552918-445af573-7b0f-4479-b07e-a223afe767b0.png)
+
 
 
 
