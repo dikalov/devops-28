@@ -49,6 +49,8 @@ dd if=/dev/zero of=output5 bs=1G count=4
 ### Создайте общую volume-group на этих двух PV.
 ![image](https://user-images.githubusercontent.com/126553776/230464715-7088cf87-713e-499b-b2a7-7944cc52f105.png)
 
+Команда `vgcreate volume-group /dev/md0 /dev/md1` используется для создания новой группы томов (volume group) с именем `volume-group` на основе двух физических томов `/dev/md0` и `/dev/md1`. Группа томов - это объединение физических томов вместе, которые могут быть логически разбиты на один или несколько логических томов (logical volumes).
+
 ## Задание 10
 ### Создайте LV размером 100 Мб, указав его расположение на PV с RAID0.
 ![image](https://user-images.githubusercontent.com/126553776/230469269-bbd00226-ad0f-4a7b-a87b-f5bb7552c07e.png)
