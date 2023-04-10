@@ -3,12 +3,13 @@
 
 Подключитесь утилитой telnet к сайту stackoverflow.com:
 
-![image](https://user-images.githubusercontent.com/126553776/230893957-e067a857-f1b8-4ac5-9f23-21ce3d346cfc.png)
+Для примера взял yandex.ru
 
 Отправьте HTTP-запрос:
-'vagrant@vagrant:~$ telnet yandex.ru 80
-Trying 77.88.55.88...
-Connected to yandex.ru.
-Escape character is '^]'.
-GET /questions HTTP/1.0
-HOST: yandex.ru'
+
+![image](https://user-images.githubusercontent.com/126553776/230900444-89a5a804-2411-4a91-9cb4-80eda98da5c4.png)
+
+Код 301 говорит что запрошенный ресурс окончательно переехал по адресу указанному в строке: location: https://yandex.ru/maps
+
+## Задание 2
+### Работа
