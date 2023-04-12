@@ -21,15 +21,7 @@
 
 Технология VLAN (пакет vlan).
 
-![image](https://user-images.githubusercontent.com/126553776/231393137-ec743c1b-89ab-44b5-97db-8fdf2d922c83.png)
-
-В качестве примера я добавил VLAN 5 на интерфейс eth0 и назначил ему IP адрес 10.0.0.5
-
-sudo vconfig add eth0 5
-
-sudo ip addr add 10.0.0.5/24 dev eth0.5
-
-sudo ip link set up eth0.5
+![image](https://user-images.githubusercontent.com/126553776/231395965-0669f648-e2f2-48f6-837e-432eaf79e36b.png)
 
 ## Задание 4
 ### Какие типы агрегации интерфейсов есть в Linux? Какие опции есть для балансировки нагрузки? Приведите пример конфига.
