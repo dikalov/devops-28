@@ -21,7 +21,20 @@
 
 Технология VLAN (пакет vlan).
 
-![image](https://user-images.githubusercontent.com/126553776/231395965-0669f648-e2f2-48f6-837e-432eaf79e36b.png)
+`network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens4:
+      optional: yes
+      addresses: 
+        - 192.168.0.2/24
+  vlans:
+    vlan88:
+      id: 88
+      link: ens4 
+      addresses:
+        - 192.168.1.2/24`
 
 ## Задание 4
 ### Какие типы агрегации интерфейсов есть в Linux? Какие опции есть для балансировки нагрузки? Приведите пример конфига.
