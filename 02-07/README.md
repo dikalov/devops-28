@@ -21,20 +21,21 @@
 
 Технология VLAN (пакет vlan).
 
+Пример конфига.
 ```
 
 network:
   version: 2
   renderer: networkd
   ethernets:
-    ens4:
+    enp0s3:
       optional: yes
       addresses: 
-        - 192.168.0.2/24
+        - 192.168.0.52/24
   vlans:
-    vlan88:
-      id: 88
-      link: ens4 
+    vlan10:
+      id: 10
+      link: enp0s3 
       addresses:
         - 192.168.1.2/24
 
