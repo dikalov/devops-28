@@ -141,6 +141,11 @@ elif [[ "$count" -gt "30" ]]; then
 fi
 exit 0
 ```
+`% chmod +x .git/hooks/commit-msg`
+
+
+
+
 
 ----
 
