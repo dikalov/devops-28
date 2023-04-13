@@ -118,7 +118,28 @@ ____
 ### Ваш скрипт:
 
 ```bash
-???
+% nano .git/hooks/commit-msg
+#!/usr/bin/env bash 
+
+validator=$(grep -c "\[[[:digit:]]*-[[:alpha:]]*-[[:digit:]]*-[[:alpha:]]*\] *" "$1")
+count=$(cat "$1" | wc -m )
+
+if [[ "$validator" -eq "0" ]]; then 
+    echo "Commit message does not match format: [number-section-number-lecture] message"
+    echo 
+    echo "Commit message:"
+    cat $1 | grep -v ^#
+    echo
+    exit 1
+elif [[ "$count" -gt "30" ]]; then 
+    echo "The commit message must not exceed 30 characters. It turned out $count characters"
+    echo 
+    echo :"Commit message:"
+    cat $1 | grep -v ^#
+    echo
+    exit 1
+fi
+exit 0
 ```
 
 ----
