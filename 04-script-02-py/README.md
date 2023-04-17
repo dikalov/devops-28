@@ -51,15 +51,33 @@ for result in result_os.split('\n'):
 ### Ваш скрипт:
 
 ```python
-???
+#!/usr/bin/env python3
+import os
+
+basedir = "~/netology/sysadm-homeworks"
+bash_command = [f"cd {basedir}", "git status "]
+result_os = os.popen(' && '.join(bash_command)).read()
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('modified:', basedir)
+        print(prepare_result)
 ```
 
 ### Вывод скрипта при запуске во время тестирования:
 
 ```
-???
+% python3 modi.py
+    ~/netology/sysadm-homeworks   README.md
 ```
 
+Данный скрипт выполняет следующие действия:
+1. Импортирует модуль `os`.
+2. Устанавливает переменную `basedir` равной строке `"~/netology/sysadm-homeworks"`. Это является путем к директории, где находятся файлы, которые необходимо проверить на изменения.
+3. Создает список `bash_command`, который содержит две команды: переход в директорию `basedir` и выполнение команды `git status`.
+4. Вызывает команды из списка `bash_command` с помощью модуля `os`, объединяя их с помощью оператора `&&` (логическое И).
+5. Читает результат выполнения команд и сохраняет их в переменную `result_os`.
+6. Разбивает результат на строки и проверяет каждую строку на наличие подстроки `"modified"`.
+7. Если подстрока найдена, то заменяет `"modified:"` на значение `basedir` и выводит результат на экран.
 ------
 
 ## Задание 3
