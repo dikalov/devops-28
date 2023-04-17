@@ -189,26 +189,26 @@ with open('host_test.log', 'w+') as file:
 ### Вывод скрипта при запуске во время тестирования:
 
 ```
-% python3 host_test.py
- drive.google.com  142.250.185.78
+vagrant@vagrant:~$ python3 host.py
+ drive.google.com  64.233.161.194
 
- mail.google.com  142.250.186.69
+ mail.google.com  216.58.210.133
 
- google.com  142.250.184.238
+ google.com  216.58.210.142
 
- % python3 host_test.py
- drive.google.com  142.250.185.78
+ vagrant@vagrant:~$ python3 host.py
+[ERROR] drive.google.com IP mismatch: 64.233.161.194  74.125.205.194
 
-[ERROR] mail.google.com IP mismatch: 142.250.186.69  142.250.186.101
+[ERROR] mail.google.com IP mismatch: 216.58.210.133  216.58.209.197
 
- google.com  142.250.184.238
+[ERROR] google.com IP mismatch: 216.58.210.142  216.58.210.174
 
- % python3 host_test.py
- drive.google.com  142.250.185.78
+vagrant@vagrant:~$ python3 host.py
+ drive.google.com  74.125.205.194
 
- mail.google.com  142.250.186.101
+ mail.google.com  216.58.209.197
 
- google.com  142.250.184.238
+ google.com  216.58.210.174
 ```
 
 Этот скрипт выполняет проверку DNS-запросов для некоторых хостов, а затем записывает результат в файл `host_test.log`. Сначала определяется список хостов `hosts` и пустой список `fileList`. Затем считывается файл `host_test.log` и его содержимое добавляется в список `fileList`. Далее происходит цикл `for` для каждого хоста из списка `hosts`, выполняется DNS-запрос для каждого хоста и сравнивается с ранее известными IP-адресами из списка `fileList`. Если IP-адрес совпадает, то скрипт записывает имя хоста и его IP-адрес в файл `host_test.log`. Если IP-адрес не совпадает, то скрипт записывает сообщение об ошибке в файл `host_test.log`. Если хост не был добавлен к списку, скрипт также записывает его имя и IP-адрес в файл `host_test.log` и выводит на экран.
