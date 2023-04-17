@@ -74,9 +74,9 @@ for result in result_os.split('\n'):
 1. Импортирует модуль `os`.
 2. Устанавливает переменную `basedir` равной строке `"~/netology/sysadm-homeworks"`. Это является путем к директории, где находятся файлы, которые необходимо проверить на изменения.
 3. Создает список `bash_command`, который содержит две команды: переход в директорию `basedir` и выполнение команды `git status`(выдает текущий статус изменений в репозитории).
-4. Далее, с помощью функции os.popen() выполняются эти команды в командной оболочке и результаты сохраняются в переменную result_os. Затем строка result_os разбивается на строки с помощью метода split() и каждая строка обрабатывается в цикле for. Если в строке присутствует слово "modified", то оно заменяется на путь к каталогу basedir с помощью метода replace() и результат выводится на экран с помощью функции print(). 
+4. Далее, с помощью функции `os.popen()` выполняются эти команды в командной оболочке и результаты сохраняются в переменную `result_os`. Затем строка `result_os` разбивается на строки с помощью метода `split()` и каждая строка обрабатывается в цикле `for`. Если в строке присутствует слово "modified", то оно заменяется на путь к каталогу `basedir` с помощью метода `replace()` и результат выводится на экран с помощью функции `print()`. 
 
-Таким образом, скрипт выводит список измененных файлов в репозитории Git, находящемся в каталоге basedir.
+Таким образом, скрипт выводит список измененных файлов в репозитории Git, находящемся в каталоге `basedir`.
 
 ------
 
@@ -87,13 +87,38 @@ for result in result_os.split('\n'):
 ### Ваш скрипт:
 
 ```python
-???
+#!/usr/bin/env python3
+
+import os
+import sys
+
+basedir = ""
+try:
+    basedir = sys.argv[1]
+except:
+    print("Incorrect repository path")
+
+if basedir != "":
+        bash_command = [f"cd {basedir}",  "git status "]
+        result_os1 = os.listdir(basedir);
+
+        if result_os1.__contains__(".git"):
+                result_os = os.popen(' && '.join(bash_command)).read()
+                for result in result_os.split('\n'):
+                    if result.find('modified') != -1:
+                        prepare_result = result.replace('modified:', basedir)
+                        print(prepare_result)
+        else:
+                print("There is no git repository on the entered path")
 ```
 
 ### Вывод скрипта при запуске во время тестирования:
 
 ```
-???
+% python3 modi_2.py Documents/DevOps/git/devops-netology
+    Documents/DevOps/git/devops-netology   README.md
+% python3 modi_2.py Documents/DevOps/
+There is no git repository on the entered path
 ```
 
 ------
