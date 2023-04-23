@@ -116,9 +116,9 @@ def check_site_dns(site_url, site_dict):
         ip_changed = True
 
     if ip_changed == True:
-        with open("servers_ip.json", "w") as fp_json:
+        with open("ip.json", "w") as fp_json:
             json.dump(site_dict, fp_json, indent=2)
-        with open("servers_ip.yaml", "w") as fp_yaml:
+        with open("ip.yaml", "w") as fp_yaml:
             yaml.dump(site_dict, fp_yaml, explicit_start=True, explicit_end=True)
 
     return site_dict
@@ -150,8 +150,28 @@ drive.google.com - 64.233.165.194.
 ### JSON-файл(ы), который(е) записал ваш скрипт:
 
 ```json
-???
+{
+  "drive.google.com": [
+    "64.233.165.194"
+  ],
+  "mail.google.com": [
+    "74.125.205.83",
+    "74.125.205.19",
+    "74.125.205.18",
+    "74.125.205.17"
+  ],
+  "google.com": [
+    "64.233.161.102",
+    "64.233.161.139",
+    "64.233.161.100",
+    "64.233.161.138",
+    "64.233.161.101",
+    "64.233.161.113"
+  ]
+}
 ```
+
+![image](https://user-images.githubusercontent.com/126553776/233853147-54a38e7e-a629-4a21-a52f-bb3390344646.png)
 
 ### YAML-файл(ы), который(е) записал ваш скрипт:
 
