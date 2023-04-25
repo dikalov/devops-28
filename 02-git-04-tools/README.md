@@ -33,4 +33,27 @@ git log v0.12.23..v0.12.24 --oneline
 ## Задание 5
 ###  Найдите коммит в котором была создана функция `func providerSource`, ее определение в коде выглядит так `func providerSource(...)` (вместо троеточего перечислены аргументы).
 
+$ git log -S'func providerSource(' --oneline
+
+8c928e8358 main: Consult local directories as potential mirrors of providers
+
+![image](https://user-images.githubusercontent.com/126553776/234284554-4dea4bb2-deb7-4016-8a40-7e6c3dbc21a8.png)
+
+## Задание 6
+###  Найдите все коммиты в которых была изменена функция globalPluginDirs.
+
+8364383c35 Push plugin discovery down into command package
+
+66ebff90cd move some more plugin search path logic to command
+
+41ab0aef7a Add missing OS_ARCH dir to global plugin paths
+
+52dbf94834 keep .terraform.d/plugins for discovery
+
+78b1220558 Remove config.go and update things using its aliases
+
+## Задание 7
+###  Кто автор функции `synchronizedWriters`?
+
+
 
