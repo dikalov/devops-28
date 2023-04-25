@@ -55,5 +55,18 @@ $ git log -S'func providerSource(' --oneline
 ## Задание 7
 ###  Кто автор функции `synchronizedWriters`?
 
+![image](https://user-images.githubusercontent.com/126553776/234289264-897b677b-11f6-4d44-b2c1-1a33cae2eab2.png)
+
+git show bdfea50cc85161dea41be0fe3381fd98731ff786  удаление
+
+![image](https://user-images.githubusercontent.com/126553776/234290149-8f855d06-6606-4cb2-860e-01df26065395.png)
+
+git show 5ac311e2a91e381e2f52234668b49ba670aa0fe5 создание
+
+![image](https://user-images.githubusercontent.com/126553776/234290426-9a7e774b-b5cf-4492-b39c-1f50f74f80b7.png)
+
+### Ответ
+Author: Martin Atkins <mart@degeneration.co.uk>
+
 
 
