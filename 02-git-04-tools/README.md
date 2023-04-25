@@ -19,7 +19,9 @@ commit 85024d3100126de36331c6982bfaac02cdab9e76 (tag: v0.12.23)
 ## Задание 3
 ### Сколько родителей у коммита b8d720? Напишите их хеши.
 
- 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b
+ 56cd7859e05c36c06b56d013b55a252d0bb7e158 
+ 
+ 9ea88f22fc6269854151c571162c5bcf958bee2b
 
 ![image](https://user-images.githubusercontent.com/126553776/234282899-63c68685-0c09-46f8-8387-ef188439de15.png)
 
