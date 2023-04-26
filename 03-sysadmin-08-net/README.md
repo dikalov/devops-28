@@ -14,5 +14,11 @@ show bgp x.x.x.x/32
 ## Задание 2
 ### Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.
 
+![image](https://user-images.githubusercontent.com/126553776/234526209-41fdd0ad-f541-479b-b762-189e8c4bab31.png)
 
+![image](https://user-images.githubusercontent.com/126553776/234526604-3866e554-40dd-4896-b115-4db8c7efb027.png)
+
+'sudo ip route add 10.0.20.0/24 via 10.0.2.15' - Через шлюз
+
+'sudo ip route add 10.0.30.0/24 dev eth0' - Через интерфейс eth0
 
