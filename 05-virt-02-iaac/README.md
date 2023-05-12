@@ -86,4 +86,7 @@ vagrant@vagrant:~$
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/7860b47d-b319-49f1-9a56-971d4b890423)
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/e92f2e50-04b0-411f-96c9-4cc660e43783)
+
+
 
