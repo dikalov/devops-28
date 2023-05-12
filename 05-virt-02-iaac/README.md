@@ -43,5 +43,13 @@ Ansible - это инструмент автоматизации, который
 
 ## Задание 3
 ### Установить на личный компьютер:
-VirtualBox, Vagrant, Ansible.
+VirtualBox, Vagrant, Ansible, Terraform.
 ### Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.
+Vagrant
+'''
+C:\Windows\system32>vagrant -v
+Vagrant 2.3.4
+
+C:\Windows\system32>
+'''
+
