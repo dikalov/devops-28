@@ -52,4 +52,10 @@ Vagrant 2.3.4
 
 C:\Windows\system32>
 ```
-
+VirtualBox
+```
+C:\Windows\system32>wmic datafile where name='c:\\Program Files\\Oracle\\VirtualBox\\VirtualBox.exe' get version
+Version
+7.0.6.5176
+C:\Windows\system32>
+```
