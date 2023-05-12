@@ -84,7 +84,8 @@ vagrant@vagrant:~$
 ## Задание 4
 ### Создайте виртуальную машину. Зайдите внутрь ВМ, убедитесь, что Docker установлен с помощью команды
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/7860b47d-b319-49f1-9a56-971d4b890423)
+![image](https://github.com/dikalov/devops-28/assets/126553776/6189a130-ebc7-42d1-bcb7-ff3209df76d4)
+
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/e92f2e50-04b0-411f-96c9-4cc660e43783)
 
