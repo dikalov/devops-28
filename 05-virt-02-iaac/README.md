@@ -59,3 +59,14 @@ Version
 7.0.6.5176
 C:\Windows\system32>
 ```
+Terraform
+```
+vagrant@vagrant:~$ terraform version
+Terraform v1.0.5
+on linux_amd64
+
+Your version of Terraform is out of date! The latest version
+is 1.4.6. You can update by downloading from https://www.terraform.io/downloads.html
+vagrant@vagrant:~$
+```
+
