@@ -69,4 +69,19 @@ Your version of Terraform is out of date! The latest version
 is 1.4.6. You can update by downloading from https://www.terraform.io/downloads.html
 vagrant@vagrant:~$
 ```
+Ansible
+```
+vagrant@vagrant:~$ ansible --version
+ansible 2.9.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.8.10 (default, Nov 14 2022, 12:59:47) [GCC 9.4.0]
+vagrant@vagrant:~$
+```
+
+## Задание 4
+### Создайте виртуальную машину. Зайдите внутрь ВМ, убедитесь, что Docker установлен с помощью команды
+
 
