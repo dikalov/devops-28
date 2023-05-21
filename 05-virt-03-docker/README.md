@@ -9,6 +9,10 @@
 FROM nginx
 RUN echo '<html><head>Hey, Netology</head><body><h1>I am DevOps Engineer!</h1></body></html>' > /usr/share/nginx/html/index.html
 ```
+Делаем fork образа: ```docker build -f Dockerfile -t dikalow/devops-28:5.3 .```
+
+Пушим образ в наш репозиторий(предварительно залогинившись): ```docker push dikalow/devops-28:5.3```
+
 
 
 
