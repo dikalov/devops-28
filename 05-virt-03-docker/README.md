@@ -59,4 +59,8 @@ Gitlab-сервер для реализации CI/CD-процессов и пр
 sudo touch /data/readme_centos.md
 sudo nano /data/readme_centos.md
 ```
+Подключимся во второй контейнер и отобразим листинг и содержание файлов в /data контейнера.
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/fdd99a0a-32d2-4569-be39-e23ac510f664)
+
+Всё получилось!
