@@ -49,7 +49,14 @@ Gitlab-сервер для реализации CI/CD-процессов и пр
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/cf9faf50-5732-4aae-b24a-49bc20ad9da1)
 
+Подключаемся к первому контейнеру с помощью docker exec и создаем текстовый файл в /data
 
+```docker exec centos-container /bin/bash -c "echo test_message>/data/readme.md"```
 
+Добавим еще один файл в папку /data на хостовой машине:
 
+``` 
+sudo touch /data/readme_centos.md
+sudo nano /data/readme_centos.md
+```
 
