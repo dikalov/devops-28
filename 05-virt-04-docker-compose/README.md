@@ -8,9 +8,9 @@
 ## Задание 2
 ### Создайте вашу первую виртуальную машину в YandexCloud с помощью web-интерфейса YandexCloud.
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/eef5aa5a-ced8-489c-a8b8-c83ec8bf1784)
+![image](https://github.com/dikalov/devops-28/assets/126553776/39c4395c-7944-45ed-b4ce-8b9cb37f9db8)
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/3f28d4d7-f6e2-454f-b1cc-8a6c6517de23)
+![image](https://github.com/dikalov/devops-28/assets/126553776/420197e2-d511-45e9-a437-9897fd0c4376)
 
 ## Задание 3
 ### С помощью Ansible и Docker Compose разверните на виртуальной машине из предыдущего задания систему мониторинга на основе Prometheus/Grafana. Используйте Ansible-код в директории (src/ansible). Чтобы получить зачёт, вам нужно предоставить вывод команды "docker ps" , все контейнеры, описанные в docker-compose, должны быть в статусе "Up".
