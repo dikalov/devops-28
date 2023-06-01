@@ -8,7 +8,7 @@
 ## Задание 2
 ### Создайте вашу первую виртуальную машину в YandexCloud с помощью web-интерфейса YandexCloud.
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/39c4395c-7944-45ed-b4ce-8b9cb37f9db8)
+![image](https://github.com/dikalov/devops-28/assets/126553776/dfb193c3-7356-475a-af33-994baffe4688)
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/5677af51-a165-4cc1-9ead-a7c4d3e0f0c4)
 
