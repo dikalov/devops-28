@@ -49,3 +49,6 @@ Markdown
 
 
 ## Задание 2
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/13f02c51-544b-4cf1-b5e6-044431c12fbe)
+
