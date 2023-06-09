@@ -79,6 +79,15 @@ explain select c.* from clients c join orders o on c.booking = o.id;
 ## Задание 6
 ### Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. задачу 1). Остановите контейнер с PostgreSQL, но не удаляйте volumes. Поднимите новый пустой контейнер с PostgreSQL. Восстановите БД test_db в новом контейнере. Приведите список операций, который вы применяли для бэкапа данных и восстановления.
 
+Подключаюсь к контейнеру
+```
+vagrant@server1:/var/lib$ docker exec -it postgres_test bash
+```
+Создаю бекап на нужный volume
+```
+root@server1:/var/lib/postgresql/backup# pg_dump -U postgres -W test_db > /var/lib/postgresql/backup/test_db.sql
+```
+
 
 
 
