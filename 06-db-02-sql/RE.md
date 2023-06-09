@@ -17,7 +17,6 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/5356bfee-c97a-4c77-9963-ef4603694f48)
 
-
 ## Задание 2
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/13f02c51-544b-4cf1-b5e6-044431c12fbe)
@@ -33,4 +32,37 @@
 SQL-запрос для выдачи списка пользователей с правами над таблицами test_db, а также список пользователей с правами над таблицами test_db
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/7ce5544a-a721-4c9a-b5e8-829e3f7ef6b7)
+
+## Задание 3
+### Используя SQL-синтаксис, наполните таблицы следующими тестовыми данными:
+
+Таблица orders
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/01210a9e-2560-4df4-ab5c-a2d1579b48b0)
+
+Таблица clients
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/08a722cb-89a2-435f-97ff-0b981262519c)
+
+вычислите количество записей для каждой таблицы:
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/32bd0539-0c07-4964-b764-52ea713051c1)
+
+## Задание 4
+### Часть пользователей из таблицы clients решили оформить заказы из таблицы orders. Используя foreign keys, свяжите записи из таблиц, согласно таблице.
+
+Приведите SQL-запросы для выполнения этих операций.
+```
+update clients set booking = (select id from orders where title = 'book') where second_name = 'Иванов Иван Иванович';
+update clients set booking = (select id from orders where title = 'monitor') where second_name = 'Петров Петр Петрович';
+update clients set booking = (select id from orders where title = 'guitar') where second_name = 'Иоганн Себастьян Бах';
+select c.* from clients c join orders o on c.booking = o.id;
+```
+![image](https://github.com/dikalov/devops-28/assets/126553776/95bec594-59f2-44f0-90d6-f0476f98a867)
+
+
+
+
+
+
 
