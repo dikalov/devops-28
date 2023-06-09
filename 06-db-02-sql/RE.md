@@ -99,7 +99,7 @@ vagrant@server1:~$ docker run --network host --name postgres_test2 -e POSTGRES_P
 ```
 vagrant@server1:~$ docker exec -it postgres_test2 bash
 ```
-Востановливаем из бекапа необходимой базы
+Востанавливаем из бекапа необходимой базы
 ```
 root@server1:/# psql -U postgres -W test_db < /var/lib/postgresql/backup/test_db.sql
 ```
