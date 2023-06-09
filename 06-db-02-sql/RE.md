@@ -87,9 +87,25 @@ vagrant@server1:/var/lib$ docker exec -it postgres_test bash
 ```
 root@server1:/var/lib/postgresql/backup# pg_dump -U postgres -W test_db > /var/lib/postgresql/backup/test_db.sql
 ```
+Остановил старый контейнер
+```
+vagrant@server1:~$ docker stop postgres_test
+```
+Поднял новый контейнер и смонтировал volume с бекапом
+```
+vagrant@server1:~$ docker run --network host --name postgres_test2 -e POSTGRES_PASSWORD=postgres -ti -d -v vol2:/var/lib/postgresql/backup postgres:12
+```
+Подключаемся к новому контейнеру
+```
+vagrant@server1:~$ docker exec -it postgres_test2 bash
+```
+Востановливаем из бекапа необходимой базы
+```
+root@server1:/# psql -U postgres -W test_db < /var/lib/postgresql/backup/test_db.sql
+```
+Проверим наличие базы и таблиц:
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/ec771dc2-e8c6-49bc-9e02-0f25cc571ffe)
 
-
-
-
+![image](https://github.com/dikalov/devops-28/assets/126553776/f211124d-ee3d-4935-8661-a6a5b2987466)
 
