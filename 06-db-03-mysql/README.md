@@ -9,3 +9,7 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/4c9e9df0-d1a5-413a-b67b-7bbcb7de0e60)
 
+Запускаю контейнер
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/13c478cc-18c0-40bd-9a94-bc3903e4582d)
+
