@@ -13,11 +13,22 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/ce462394-416e-49bf-b7bd-b4288a86d33d)
 
-Создаю базу и востанвливаю из дампа
+Создаю базу и востаналиваю из дампа
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/2e538ae7-4ce3-4c0f-b08f-ec74a7b4d42d)
 
 Копирую дамп
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/5c77eedd-3736-4e2c-8450-7e8766309d06)
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/d9115e07-2a07-4540-9291-8491e20f1b77)
+
+Восстанавливаем базу данных
+```
+/etc/mysql# mysql -u root -p test_db < test_dump.sql
+mysql> use test_db;
+```
+![image](https://github.com/dikalov/devops-28/assets/126553776/5d101e83-c85c-40fd-b2f1-a501af7f9ce7)
+
+
 
