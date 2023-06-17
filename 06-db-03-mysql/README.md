@@ -13,7 +13,11 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/ce462394-416e-49bf-b7bd-b4288a86d33d)
 
-Копирую бэкап в контейнер
+Создаю базу и востанвливаю из дампа
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/8f879104-471a-4adc-badc-dbef2af8603a)
+![image](https://github.com/dikalov/devops-28/assets/126553776/2e538ae7-4ce3-4c0f-b08f-ec74a7b4d42d)
+
+Копирую дамп
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/5c77eedd-3736-4e2c-8450-7e8766309d06)
 
