@@ -41,5 +41,8 @@ mysql> use test_db;
 
 Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю test и приведите в ответе к задаче.
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/fb9e074c-1a1c-4bed-a617-641a42adea4b)
 
+## Задание 3
+### Установите профилирование SET profiling = 1. Изучите вывод профилирования команд SHOW PROFILES;. Исследуйте, какой engine используется в таблице БД test_db и приведите в ответе. Измените engine и приведите время выполнения и запрос на изменения из профайлера в ответе: на MyISAM, на InnoDB.
 
