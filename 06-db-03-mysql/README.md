@@ -13,3 +13,7 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/13c478cc-18c0-40bd-9a94-bc3903e4582d)
 
+Копирую бэкап в контейнер
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/8f879104-471a-4adc-badc-dbef2af8603a)
+
