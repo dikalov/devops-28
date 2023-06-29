@@ -22,3 +22,45 @@ postgres-# \l+
            |          |          |            |            | postgres=CTc/postgres |         |            |
 (3 rows)
 ```
+Подключение к БД
+```
+postgres=# \c postgres
+You are now connected to database "postgres" as user "postgres".
+```
+Вывод списка таблиц
+```
+postgres=# \dtS
+                    List of relations
+   Schema   |          Name           | Type  |  Owner
+------------+-------------------------+-------+----------
+ pg_catalog | pg_aggregate            | table | postgres
+ pg_catalog | pg_am                   | table | postgres
+ pg_catalog | pg_amop                 | table | postgres
+ pg_catalog | pg_amproc               | table | postgres
+ pg_catalog | pg_attrdef              | table | postgres
+.....
+ pg_catalog | pg_user_mapping         | table | postgres
+(62 rows)
+```
+Вывод описания содержимого таблиц
+```
+postgres=# \dS+
+                                            List of relations
+   Schema   |              Name               | Type  |  Owner   | Persistence |    Size    | Description
+------------+---------------------------------+-------+----------+-------------+------------+-------------
+ pg_catalog | pg_aggregate                    | table | postgres | permanent   | 56 kB      |
+ pg_catalog | pg_am                           | table | postgres | permanent   | 40 kB      |
+ pg_catalog | pg_amop                         | table | postgres | permanent   | 80 kB      |
+ pg_catalog | pg_amproc                       | table | postgres | permanent   | 64 kB      |
+.....
+ pg_catalog | pg_views                        | view  | postgres | permanent   | 0 bytes    |
+(129 rows)
+```
+Выход из psql
+```
+postgres=# \q
+vagrant@server1:/#
+```
+## Задание 2
+### Используя psql создайте БД test_database.
+
