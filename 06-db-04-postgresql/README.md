@@ -4,9 +4,10 @@
 
 Подключился psql
 ```
-vagrant@server1:/# psql -U postgres
-psql (13.4 (Debian 13.4-4.pgdg110+1))
+vagrant@0server:/# psql -U postgres
+psql (13.6 (Debian 13.6-1.pgdg110+1))
 Type "help" for help.
+
 postgres=#
 ```
 Вывод списка БД
