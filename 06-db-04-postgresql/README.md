@@ -64,4 +64,46 @@ vagrant@server1:/#
 ```
 ## Задание 2
 ### Используя psql создайте БД test_database.
+```
+vagrant@0server1:/# psql -U postgres
+psql (13.6 (Debian 13.6-1.pgdg110+1))
+Type "help" for help.
 
+postgres=# CREATE DATABASE test_database;
+CREATE DATABASE
+```
+Восстановите бэкап БД в test_database.
+```
+vagrant@server1:~$ docker cp ../../vagrant_data/test_dump.sql postgresql-docker:/tmp
+vagrant@server1:~$ docker exec -it postgresql-docker bash
+vagrant@0server1:/# psql -U postgres -f /tmp/test_dump.sql  test_database
+SET
+SET
+SET
+SET
+SET
+ set_config
+------------
+
+(1 row)
+
+SET
+SET
+SET
+SET
+SET
+SET
+CREATE TABLE
+ALTER TABLE
+CREATE SEQUENCE
+ALTER TABLE
+ALTER SEQUENCE
+ALTER TABLE
+COPY 8
+ setval
+--------
+      8
+(1 row)
+
+ALTER TABLE
+```
