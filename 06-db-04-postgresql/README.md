@@ -4,7 +4,7 @@
 
 Подключился psql
 ```
-vagrant@0server:/# psql -U postgres
+vagrant@0server1:/# psql -U postgres
 psql (13.6 (Debian 13.6-1.pgdg110+1))
 Type "help" for help.
 
@@ -74,8 +74,8 @@ CREATE DATABASE
 ```
 Восстановите бэкап БД в test_database.
 ```
-vagrant@server1:~$ docker cp ../../vagrant_data/test_dump.sql postgresql-docker:/tmp
-vagrant@server1:~$ docker exec -it postgresql-docker bash
+vagrant@server1:~$ docker cp ../../vagrant_data/test_dump.sql dv28:/tmp
+vagrant@server1:~$ docker exec -it dv28 bash
 vagrant@0server1:/# psql -U postgres -f /tmp/test_dump.sql  test_database
 SET
 SET
@@ -107,3 +107,76 @@ COPY 8
 
 ALTER TABLE
 ```
+Перейдите в управляющую консоль psql внутри контейнера.
+```
+vagrant@0server1:/# psql -U postgres
+psql (13.6 (Debian 13.6-1.pgdg110+1))
+Type "help" for help.
+```
+Подключитесь к восстановленной БД и проведите операцию ANALYZE для сбора статистики по таблице.
+```
+postgres=# \c test_database
+You are now connected to database "test_database" as user "postgres".
+test_database=# \dt
+         List of relations
+ Schema |  Name  | Type  |  Owner
+--------+--------+-------+----------
+ public | orders | table | postgres
+(1 row)
+
+test_database=# ANALYZE VERBOSE public.orders;
+INFO:  analyzing "public.orders"
+INFO:  "orders": scanned 1 of 1 pages, containing 8 live rows and 0 dead rows; 8 rows in sample, 8 estimated total rows
+ANALYZE
+```
+Используя таблицу pg_stats, найдите столбец таблицы orders с наибольшим средним значением размера элементов в байтах.
+```
+test_database=# SELECT avg_width FROM pg_stats WHERE tablename='orders';
+ avg_width
+-----------
+         4
+        16
+         4
+(3 rows)
+```
+## Задание 3
+### Архитектор и администратор БД выяснили, что ваша таблица orders разрослась до невиданных размеров и поиск по ней занимает долгое время. Вам как успешному выпускнику курсов DevOps в Нетологии предложили провести разбиение таблицы на 2: шардировать на orders_1 - price>499 и orders_2 - price<=499.
+
+Предложите SQL-транзакцию для проведения этой операции.
+```
+test_database=# CREATE TABLE orders_more_499_price (CHECK (price > 499)) INHERITS (orders);
+CREATE TABLE
+test_database=# INSERT INTO orders_more_499_price SELECT * FROM orders WHERE price > 499;
+INSERT 0 3
+test_database=# CREATE TABLE orders_less_499_price (CHECK (price <= 499)) INHERITS (orders);
+CREATE TABLE
+test_database=# INSERT INTO orders_LESS_499_price SELECT * FROM orders WHERE price <= 499;
+INSERT 0 5
+test_database=# DELETE FROM ONLY orders;
+DELETE 8
+test_database=# \dt
+                 List of relations
+ Schema |         Name          | Type  |  Owner
+--------+-----------------------+-------+----------
+ public | orders                | table | postgres
+ public | orders_less_499_price | table | postgres
+ public | orders_more_499_price | table | postgres
+(3 rows)
+```
+Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders? Да, можно:
+```
+CREATE RULE orders_insert_to_more AS ON INSERT TO orders WHERE ( price > 499 ) DO INSTEAD INSERT INTO orders_more_499_price VALUES (NEW.*);
+CREATE RULE orders_insert_to_less AS ON INSERT TO orders WHERE ( price <= 499 ) DO INSTEAD INSERT INTO orders_less_499_price VALUES (NEW.*);
+```
+## Задание 4
+### Используя утилиту pg_dump создайте бекап БД test_database. Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца title для таблиц test_database?
+```
+vagrant@server1:/# pg_dump -U postgres -d test_database > /var/lib/postgresql/bkp/test_database.sql
+```
+
+```
+test_database=# CREATE unique INDEX title_un ON public.orders(title);
+CREATE INDEX
+```
+
+
