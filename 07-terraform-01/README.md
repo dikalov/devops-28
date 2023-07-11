@@ -24,4 +24,9 @@ Error: Missing name for resource (Ошибка: Отсутствует имя д
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/4ddf6f37-1c7d-45f6-b6e2-d267eea42e86)
 
+### Выполните код. В качестве ответа приложите вывод команды docker ps
+![image](https://github.com/dikalov/devops-28/assets/126553776/dd3aa5d3-7669-4f70-851a-d61f2ad923ee)
+
+### Замените имя docker-контейнера в блоке кода на hello_world, выполните команду terraform apply -auto-approve. Объясните своими словами, в чем может быть опасность применения ключа -auto-approve ? В качестве ответа дополнительно приложите вывод команды docker ps
+
 
