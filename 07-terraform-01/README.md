@@ -43,5 +43,12 @@ Error: Missing name for resource (Ошибка: Отсутствует имя д
 
 ### Уничтожьте созданные ресурсы с помощью terraform. Убедитесь, что все ресурсы удалены. Приложите содержимое файла terraform.tfstate.
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/a45ffa97-342c-4e82-be3c-25fa6adc1eb3)
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/e4902483-3230-40b2-9158-3a4dfef6125b)
+
+### Объясните, почему при этом не был удален docker образ nginx:latest ? Ответ подкрепите выдержкой из документации провайдера.
+
+
 
 
