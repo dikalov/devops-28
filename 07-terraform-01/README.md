@@ -48,7 +48,10 @@ Error: Missing name for resource (Ошибка: Отсутствует имя д
 ![image](https://github.com/dikalov/devops-28/assets/126553776/e4902483-3230-40b2-9158-3a4dfef6125b)
 
 ### Объясните, почему при этом не был удален docker образ nginx:latest ? Ответ подкрепите выдержкой из документации провайдера.
-
-
-
-
+```
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+```
+Keep_locally - (Необязательно, логическое значение) Если true, то образ Docker не будет удален при операции уничтожения. Если это ложь, он удалит изображение из локального хранилища докера при операции уничтожения.
