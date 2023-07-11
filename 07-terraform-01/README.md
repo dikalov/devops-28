@@ -12,4 +12,7 @@ personal.auto.tfvars - позволяет именовать файлы с пе�
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/868264df-19b1-459c-9a2b-b67d99c6fa03)
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/1da05e43-7408-462a-b2d8-305631bc654f)
+
+
 
