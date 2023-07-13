@@ -7,6 +7,10 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/92013b58-7464-44bf-9cb5-9199f79da044)
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/b6826210-b1ab-4927-ad30-a024619043dd)
+
+
+
 
 
 ### В качестве решения приложите: скриншот ЛК Yandex Cloud с созданной ВМ, скриншот успешного подключения к консоли ВМ через ssh, ответы на вопросы.
