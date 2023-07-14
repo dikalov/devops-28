@@ -77,7 +77,7 @@ resource "yandex_compute_instance" "platform_2" {
   resources {
     cores         = var.vm_db_res.cores
     memory        = var.vm_db_res.memory
-    core_fraction = var.vm_db_res.core_fraction-db
+    core_fraction = var.vm_db_res.core_fraction
   }
 ```
 ```
@@ -113,5 +113,7 @@ variable "vms_ssh_root_key" {
     ssh-keys           = var.vms_ssh_root_key.ssh-keys
   }
 ```
+#### Проверьте terraform plan (изменений быть не должно).
+![image](https://github.com/dikalov/devops-28/assets/126553776/444208a2-aba0-430e-a343-1e8d592627be)
 
 
