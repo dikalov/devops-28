@@ -64,9 +64,9 @@ resource "yandex_compute_instance" "platform" {
  name        = "${local.web}"
   platform_id = "standard-v1"
   resources {
-    cores         = var.vm_web_cores
-    memory        = var.vm_web_memory
-    core_fraction = var.vm_web_core_fraction
+    cores         = var.vm_web_res.cores
+    memory        = var.vm_web_res.memory
+    core_fraction = var.vm_web_res.core_fraction
   }
 ```
 ```
@@ -75,9 +75,9 @@ resource "yandex_compute_instance" "platform_2" {
  name        = "${local.db}"
   platform_id = "standard-v1"
   resources {
-    cores         = var.vm_web_cores-db
-    memory        = var.vm_web_memory-db
-    core_fraction = var.vm_web_core_fraction-db
+    cores         = var.vm_db_res.cores
+    memory        = var.vm_db_res.memory
+    core_fraction = var.vm_db_res.core_fraction-db
   }
 ```
 
