@@ -24,7 +24,7 @@ core_fraction=5 - уровень производительности 5%. Он �
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/13a2de96-88f3-4436-a4bd-7ddad1c0b3cb)
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/db49ebe3-5304-4bae-9875-07e4b3960118)
+![image](https://github.com/dikalov/devops-28/assets/126553776/38440562-311e-4793-b9d7-7927766cb491)
 
 #### Проверьте terraform plan (изменений быть не должно).
 
