@@ -80,6 +80,25 @@ resource "yandex_compute_instance" "platform_2" {
     core_fraction = var.vm_db_res.core_fraction-db
   }
 ```
+```
+variable "vm_web_res" {
+  type         = map(number)
+  default      = {
+     cores         = 2
+     memory        = 1
+     core_fraction = 5
+  }
+}
+
+variable "vm_db_res" {
+  type         = map(number)
+  default      = {
+     cores         = 2
+     memory        = 2
+     core_fraction = 20
+  }
+}
+```
 
 
 
