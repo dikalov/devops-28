@@ -100,6 +100,18 @@ variable "vm_db_res" {
 }
 ```
 #### Так же поступите с блоком metadata {serial-port-enable, ssh-keys}, эта переменная должна быть общая для всех ваших ВМ.
+```
+variable "vms_ssh_root_key" {
+  type = map(any)
+  default = {
+   serial-port-enable   = 1
+   ssh-keys             = "ssh-rsa  AAAAB3NzaC1yc2...
+}
 
+  metadata = {
+    serial-port-enable = var.vms_ssh_root_key.serial-port-enable
+    ssh-keys           = var.vms_ssh_root_key.ssh-keys
+  }
+```
 
 
