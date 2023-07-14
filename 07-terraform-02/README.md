@@ -58,5 +58,28 @@ core_fraction=5 - уровень производительности 5%. Он �
 ## Задание 6
 #### Вместо использования 3-х переменных ".._cores",".._memory",".._core_fraction" в блоке resources {...}, объедените их в переменные типа map с именами "vm_web_resources" и "vm_db_resources". В качестве продвинутой практики попробуйте создать одну map переменную vms_resources и уже внутри нее конфиги обеих ВМ(вложенный map). Так же поступите с блоком metadata {serial-port-enable, ssh-keys}, эта переменная должна быть общая для всех ваших ВМ. Найдите и удалите все более не используемые переменные проекта. Проверьте terraform plan (изменений быть не должно).
 
+```
+resource "yandex_compute_instance" "platform" {
+
+ name        = "${local.web}"
+  platform_id = "standard-v1"
+  resources {
+    cores         = var.vm_web_cores
+    memory        = var.vm_web_memory
+    core_fraction = var.vm_web_core_fraction
+  }
+```
+```
+resource "yandex_compute_instance" "platform_2" {
+
+ name        = "${local.db}"
+  platform_id = "standard-v1"
+  resources {
+    cores         = var.vm_web_cores-db
+    memory        = var.vm_web_memory-db
+    core_fraction = var.vm_web_core_fraction-db
+  }
+```
+
 
 
