@@ -61,7 +61,7 @@ locals {
 ###name VM vars
 
 name = "${ local.org }-${ local.project }-${ local.instance }-web"
-name = "${ local.org }-${ local.project }-${ local.instance }-db"
+name_2 = "${ local.org }-${ local.project }-${ local.instance }-db"
 ```
 ## Задание 6
 #### Вместо использования 3-х переменных ".._cores",".._memory",".._core_fraction" в блоке resources {...}, объедените их в переменные типа map с именами "vm_web_resources" и "vm_db_resources". В качестве продвинутой практики попробуйте создать одну map переменную vms_resources и уже внутри нее конфиги обеих ВМ(вложенный map).
