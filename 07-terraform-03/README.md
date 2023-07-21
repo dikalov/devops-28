@@ -29,5 +29,6 @@ depends_on = [ yandex_compute_instance.web ]
 ![image](https://github.com/dikalov/devops-28/assets/126553776/aca1dbbb-b863-4736-9e32-cb1a6613a4a2)
 
 ## Задание 3
-#### Создайте 3 одинаковых виртуальных диска, размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле disk_vm.tf .
+#### Создайте 3 одинаковых виртуальных диска, размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле disk_vm.tf . Создайте в том же файле одну ВМ c именем "storage" . Используйте блок dynamic secondary_disk{..} и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
+
 
