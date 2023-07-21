@@ -9,5 +9,25 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/c8d4d363-bf74-4288-b03c-8c4a8f32eebc)
 
-#### Создайте файл for_each-vm.tf. Опишите в нем создание 2 ВМ с именами "main" и "replica" разных по cpu/ram/disk , используя мета-аргумент for_each loop. Используйте для обеих ВМ одну, общую переменную типа list(object({ vm_name=string, cpu=number, ram=number, disk=number })). При желании внесите в переменную все возможные параметры.
+#### Создайте файл for_each-vm.tf. Опишите в нем создание 2 ВМ с именами "main" и "replica" разных по cpu/ram/disk , используя мета-аргумент for_each loop. Используйте для обеих ВМ одну, общую переменную типа list(object({ vm_name=string, cpu=number, ram=number, disk=number })). При желании внесите в переменную все возможные параметры. ВМ из пункта 2.2 должны создаваться после создания ВМ из пункта 2.1. Инициализируйте проект, выполните код.
+
+```
+resource "yandex_compute_instance" "fe_instance" {
+
+depends_on = [ yandex_compute_instance.web ]
+
+  for_each = { for vm in local.vms_fe: "${vm.vm_name}" => vm }
+  name = each.key
+  platform_id = "standard-v1"
+  resources {
+    cores          = each.value.cpu
+    memory         = each.value.ram
+    core_fraction  = each.value.frac
+  }
+```
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/aca1dbbb-b863-4736-9e32-cb1a6613a4a2)
+
+## Задание 3
+#### Создайте 3 одинаковых виртуальных диска, размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле disk_vm.tf .
 
