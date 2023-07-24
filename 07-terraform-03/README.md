@@ -80,4 +80,12 @@ resource "yandex_compute_instance" "storage_server" {
 ## Задание 4
 #### В файле ansible.tf создайте inventory-файл для ansible. Используйте функцию tepmplatefile и файл-шаблон для создания ansible inventory-файла из лекции. Готовый код возьмите из демонстрации к лекции demonstration2. Передайте в него в качестве переменных группы виртуальных машин из задания 2.1, 2.2 и 3.2.(т.е. 5 ВМ)
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/babefa2b-983a-47cd-8f46-c315036048dc)
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/723a0804-c622-4a8c-a712-73f3eee5d630)
+
+#### Инвентарь должен содержать 3 группы [webservers], [databases], [storage] и быть динамическим, т.е. обработать как группу из 2-х ВМ так и 999 ВМ. Выполните код. Приложите скриншот получившегося файла.
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/c5245818-e681-419f-bfbd-1dc4298e4457)
+
 
