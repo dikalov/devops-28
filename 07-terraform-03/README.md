@@ -5,7 +5,8 @@
 
 ## Задание 2
 #### Создайте файл count-vm.tf. Опишите в нем создание двух одинаковых ВМ web-1 и web-2(не web-0 и web-1!), с минимальными параметрами, используя мета-аргумент count loop. Назначьте ВМ созданную в 1-м задании группу безопасности.
-![image](https://github.com/dikalov/devops-28/assets/126553776/c91efec8-984a-4ef2-9164-60603f3b7b74)
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/e9eb8597-3e80-48e5-8a0d-b993085a31ed)
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/c8d4d363-bf74-4288-b03c-8c4a8f32eebc)
 
