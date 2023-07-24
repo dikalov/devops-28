@@ -22,14 +22,60 @@
 #### Создайте 3 одинаковых виртуальных диска, размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле disk_vm.tf . Создайте в том же файле одну ВМ c именем "storage" . Используйте блок dynamic secondary_disk{..} и мета-аргумент for_each для подключения созданных вами дополнительных дисков.
 
 ```
-resource "yandex_compute_disk" "stor" {
-  count   = 3
-  name    = "disk-${count.index + 1}"
-  size    = 1
+resource "yandex_compute_disk" "default_disk" {
+  count      = 3
+  name       = "default-disk-${count.index + 1}"
+  type       = "network-hdd"
+  zone       = var.default_zone
+  size       = 5
+  block_size = 4096
 }
+
+resource "yandex_compute_instance" "storage_server" {
+
+  depends_on = [yandex_compute_disk.default_disk]
+
+  name        = "storage"
+  platform_id = "standard-v1"
+
+  resources {
+    cores         = var.vm_base.cores
+    memory        = var.vm_base.memory
+    core_fraction = var.vm_base.core_fraction
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu.image_id
+    }
+  }
+
+  dynamic "secondary_disk" {
+    for_each = toset(yandex_compute_disk.default_disk[*].id)
+    content {
+      disk_id     = secondary_disk.key
+      auto_delete = true
+    }
+  }
+
+  metadata = local.ssh_keys_and_serial_port
+
+  scheduling_policy {
+    preemptible = true
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.develop.id
+    nat       = true
+  }
+
+  allow_stopping_for_update = true
+
+}
+
 ```
 
-![снимок](https://github.com/dikalov/devops-28/assets/126553776/839f751c-9074-4145-9f01-5ce2c276a20f)
+![image](https://github.com/dikalov/devops-28/assets/126553776/fab63f76-4479-49bd-a108-830487e1e91e)
 
 ## Задание 4
 #### В файле ansible.tf создайте inventory-файл для ansible. Используйте функцию tepmplatefile и файл-шаблон для создания ansible inventory-файла из лекции. Готовый код возьмите из демонстрации к лекции demonstration2. Передайте в него в качестве переменных группы виртуальных машин из задания 2.1, 2.2 и 3.2.(т.е. 5 ВМ)
