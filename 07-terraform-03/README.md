@@ -88,4 +88,7 @@ resource "yandex_compute_instance" "storage_server" {
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/c5245818-e681-419f-bfbd-1dc4298e4457)
 
+#### Для общего зачета создайте в вашем GitHub репозитории новую ветку terraform-03. Закомитьте в эту ветку свой финальный код проекта, пришлите ссылку на коммит.
+
+https://github.com/dikalov/devops-28/tree/main/07-terraform-03-project
 
