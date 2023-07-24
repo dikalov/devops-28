@@ -8,7 +8,7 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/e9eb8597-3e80-48e5-8a0d-b993085a31ed)
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/c8d4d363-bf74-4288-b03c-8c4a8f32eebc)
+![image](https://github.com/dikalov/devops-28/assets/126553776/381b393d-fb71-4e4a-bbc2-74b6ea24183a)
 
 #### Создайте файл for_each-vm.tf. Опишите в нем создание 2 ВМ с именами "main" и "replica" разных по cpu/ram/disk , используя мета-аргумент for_each loop. Используйте для обеих ВМ одну, общую переменную типа list(object({ vm_name=string, cpu=number, ram=number, disk=number })). При желании внесите в переменную все возможные параметры. ВМ из пункта 2.2 должны создаваться после создания ВМ из пункта 2.1. Инициализируйте проект, выполните код.
 
