@@ -7,4 +7,6 @@
 
 [Файл main.tf](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/main.tf)
 
+[Файл outputs.tf](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/outputs.tf)
+
 
