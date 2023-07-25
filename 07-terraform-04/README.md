@@ -9,4 +9,5 @@
 
 [Файл outputs.tf](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/outputs.tf)
 
+[Файл variables.tf](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/variables.tf)
 
