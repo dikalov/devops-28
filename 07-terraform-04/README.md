@@ -11,3 +11,5 @@
 
 [Файл variables.tf](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/variables.tf)
 
+[Файл DOCS](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/DOC.md)
+
