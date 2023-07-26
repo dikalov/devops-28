@@ -33,8 +33,48 @@ vagrant@server1:~/ter-homeworks/04/demonstration1$ terraform state rm "module.vp
 Removed module.vpc_dev.yandex_vpc_subnet.develop
 Successfully removed 1 resource instance(s).
 ```
-#### Полностью удалите из стейта модуль vm.
-```
 
 #### Импортируйте все обратно. Проверьте terraform plan - изменений быть не должно. Приложите список выполненных команд и скриншоты процессы.
+```
+vagrant@server1:~/ter-homeworks/04/demonstration1$ terraform import "module.vpc_dev.yandex_vpc_network.develop" enpno4bepjcvji48uj1j      
+data.template_file.cloudinit: Reading...
+data.template_file.cloudinit: Read complete after 0s [id=816b655432a677c121d6deb4a0156b06c36014aeef6e39cedc68f2acb7d6b98c]
+module.vpc_dev.yandex_vpc_network.develop: Importing from ID "enpno4bepjcvji48uj1j"...
+module.test-vm.data.yandex_compute_image.my_image: Reading...
+module.vpc_dev.yandex_vpc_network.develop: Import prepared!
+  Prepared yandex_vpc_network for import
+module.vpc_dev.yandex_vpc_network.develop: Refreshing state... [id=enpno4bepjcvji48uj1j]
+module.test-vm.data.yandex_compute_image.my_image: Read complete after 0s [id=fd852pbtueis1q0pbt4o]
 
+Import successful!
+
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+
+vagrant@server1:~/ter-homeworks/04/demonstration1$ terraform import "module.vpc_dev.yandex_vpc_subnet.develop" e9beha0h8tdn06m8lju4       
+data.template_file.cloudinit: Reading...
+data.template_file.cloudinit: Read complete after 0s [id=816b655432a677c121d6deb4a0156b06c36014aeef6e39cedc68f2acb7d6b98c]
+module.test-vm.data.yandex_compute_image.my_image: Reading...
+module.vpc_dev.yandex_vpc_subnet.develop: Importing from ID "e9beha0h8tdn06m8lju4"...
+module.vpc_dev.yandex_vpc_subnet.develop: Import prepared!
+  Prepared yandex_vpc_subnet for import
+module.vpc_dev.yandex_vpc_subnet.develop: Refreshing state... [id=e9beha0h8tdn06m8lju4]
+module.test-vm.data.yandex_compute_image.my_image: Read complete after 1s [id=fd852pbtueis1q0pbt4o]
+
+Import successful!
+
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+PS 
+vagrant@server1:~/ter-homeworks/04/demonstration1$ terraform plan
+data.template_file.cloudinit: Reading...
+data.template_file.cloudinit: Read complete after 0s [id=816b655432a677c121d6deb4a0156b06c36014aeef6e39cedc68f2acb7d6b98c]
+module.test-vm.data.yandex_compute_image.my_image: Reading...
+module.vpc_dev.yandex_vpc_network.develop: Refreshing state... [id=enpno4bepjcvji48uj1j]
+module.test-vm.data.yandex_compute_image.my_image: Read complete after 0s [id=fd852pbtueis1q0pbt4o]
+module.vpc_dev.yandex_vpc_subnet.develop: Refreshing state... [id=e9beha0h8tdn06m8lju4]
+module.test-vm.yandex_compute_instance.vm[0]: Refreshing state... [id=fhmvde3847dq3rd6rj4k]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
