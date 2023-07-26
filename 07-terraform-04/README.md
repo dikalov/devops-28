@@ -12,7 +12,7 @@
 
 [Локальный модуль vpc](https://github.com/dikalov/devops-28/tree/main/07-terraform-04-project/vps)
 
-[Файл main.tf](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/vpc-2/main.tf)
+[Файл main.tf](https://github.com/dikalov/devops-28/blob/main/07-terraform-04-project/main.tf)
 
 ## Задание 3
 #### Выведите список ресурсов в стейте.
