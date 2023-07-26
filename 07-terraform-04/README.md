@@ -4,7 +4,8 @@
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/c407f379-480f-4bc1-9be0-882f819ee301)
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/75e75cc3-4385-444a-a694-80c3d6847412)
+![image](https://github.com/dikalov/devops-28/assets/126553776/3cd29dad-8a12-4df8-810d-b3de8566e1d9)
+
 
 ## Задание 2
 #### Напишите локальный модуль vpc, который будет создавать 2 ресурса: одну сеть и одну подсеть в зоне, объявленной при вызове модуля. например: ru-central1-a. Вы должны передать в модуль переменные с названием сети, zone и v4_cidr_blocks . Модуль должен возвращать в виде output информацию о yandex_vpc_subnet Замените ресурсы yandex_vpc_network и yandex_vpc_subnet, созданным модулем. Не забудьте передать необходимые параметры сети из модуля vpc в модуль с виртуальной машиной. Откройте terraform console и предоставьте скриншот содержимого модуля. Пример: > module.vpc_dev. Сгенерируйте документацию к модулю с помощью terraform-docs.
