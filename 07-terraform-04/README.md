@@ -16,10 +16,25 @@
 
 ## Задание 3
 #### Выведите список ресурсов в стейте.
-
+```
+vagrant@server1:~/ter-homeworks/04/demonstration1$ terraform state list
+data.template_file.cloudinit
+module.test-vm.data.yandex_compute_image.my_image
+module.test-vm.yandex_compute_instance.vm[0]
+module.vpc_dev.yandex_vpc_network.develop
+module.vpc_dev.yandex_vpc_subnet.develop
+```
 #### Полностью удалите из стейта модуль vpc.
-
+```
+vagrant@server1:~/ter-homeworks/04/demonstration1$ terraform state rm "module.vpc_dev.yandex_vpc_network.develop"
+Removed module.vpc_dev.yandex_vpc_network.develop
+Successfully removed 1 resource instance(s).
+vagrant@server1:~/ter-homeworks/04/demonstration1$ terraform state rm "module.vpc_dev.yandex_vpc_subnet.develop" 
+Removed module.vpc_dev.yandex_vpc_subnet.develop
+Successfully removed 1 resource instance(s).
+```
 #### Полностью удалите из стейта модуль vm.
+```
 
 #### Импортируйте все обратно. Проверьте terraform plan - изменений быть не должно. Приложите список выполненных команд и скриншоты процессы.
 
