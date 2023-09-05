@@ -133,4 +133,6 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 Подходящий для работы плагин ```local``` -  execute on controller.
 
 #### 10. В prod.yml добавьте новую группу хостов с именем local, в ней разместите localhost с необходимым типом подключения.
+![image](https://github.com/dikalov/devops-28/assets/126553776/1f1efed1-91ea-4b66-89f5-dad87841e232)
+#### 11. Запустите playbook на окружении prod.yml. При запуске ansible должен запросить у вас пароль. Убедитесь что факты some_fact для каждого из хостов определены из верных group_vars.
 
