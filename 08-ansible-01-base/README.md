@@ -92,4 +92,10 @@ centos7                    : ok=3    changed=0    unreachable=0    failed=0    s
 ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 #### 7. При помощи ansible-vault зашифруйте факты в group_vars/deb и group_vars/el с паролем netology.
+![image](https://github.com/dikalov/devops-28/assets/126553776/57dfc1f8-6ece-4394-a43c-0ef2ba805249)
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/099e3619-946c-495a-98a4-7de830e072b2)
+
+#### 8. Запустите playbook на окружении prod.yml. При запуске ansible должен запросить у вас пароль. Убедитесь в работоспособности.
+
 
