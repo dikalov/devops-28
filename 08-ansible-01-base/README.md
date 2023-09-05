@@ -128,4 +128,9 @@ centos7                    : ok=3    changed=0    unreachable=0    failed=0    s
 ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 #### 9. Посмотрите при помощи ansible-doc список плагинов для подключения. Выберите подходящий для работы на control node.
+![image](https://github.com/dikalov/devops-28/assets/126553776/51480795-66a0-4f4d-ae39-5c4ae93becc5)
+
+Подходящий для работы плагин ```local``` -  execute on controller.
+
+#### 10. В prod.yml добавьте новую группу хостов с именем local, в ней разместите localhost с необходимым типом подключения.
 
