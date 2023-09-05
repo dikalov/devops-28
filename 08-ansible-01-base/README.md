@@ -56,3 +56,8 @@ PLAY RECAP *********************************************************************
 centos7                    : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
+#### 5. Добавьте факты в group_vars каждой из групп хостов так, чтобы для some_fact получились значения: для deb — deb default fact, для el — el default fact.
+![image](https://github.com/dikalov/devops-28/assets/126553776/25e38d3b-ad1f-4f9a-9a71-fe7e60f98d54)
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/03b598ea-0de3-4830-a3d1-816cd67382bf)
+
