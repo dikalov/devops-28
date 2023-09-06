@@ -2,13 +2,13 @@
 #### 1. Подготовьте свой inventory-файл prod.yml.
 ```
 ---
-  elasticsearch:
-    hosts:
-      elastic:
-        ansible_connection: docker
-  kibana:
-    hosts:
-      kibana:
-        ansible_connection: docker
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_connection: docker
+vector:
+  hosts:
+    vector-01:
+      ansible_connection: docker
 ```
 #### 2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает vector. Конфигурация vector должна деплоиться через template файл jinja2.
