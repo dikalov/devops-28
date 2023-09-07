@@ -104,22 +104,60 @@ vector:
 #### 4. Tasks должны: скачать дистрибутив нужной версии, выполнить распаковку в выбранную директорию, установить vector.
 
 #### 5. Запустите ansible-lint site.yml и исправьте ошибки, если они есть.
-Ошибки были исправлены.
+Ошибки были исправлены (лишние пробелы).
 
 #### 6. Попробуйте запустить playbook на этом окружении с флагом --check.
 ```
 vagrant@server1:~/an-home/playbook$ ansible-playbook site.yml -i inventory/prod.yml --check
-PLAY [Install Vector] ***********************************************************************************************************************************************************************************************************************
-TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Get Vector distrib] *******************************************************************************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Install Vector packages] **************************************************************************************************************************************************************************************************************
-fatal: [vector-01]: FAILED! => {"changed": false, "module_stderr": "/bin/sh: sudo: command not found\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 127}
-PLAY RECAP **********************************************************************************************************************************************************************************************************************************
-vector-01                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
-```
-Завершилось ошибкой.
+PLAY [Install Clickhouse] ******************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [clickhouse-01]
+
+TASK [Install tar] *************************************************************
+ok: [clickhouse-01]
+
+TASK [Get vector distrib] ******************************************************
+ok: [clickhouse-01]
+
+TASK [Creates directory /src/vector/] ******************************************
+ok: [clickhouse-01]
+
+TASK [CP] **********************************************************************
+changed: [clickhouse-01]
+
+TASK [GUNZP] *******************************************************************
+skipping: [clickhouse-01]
+
+TASK [UNZIP] *******************************************************************
+skipping: [clickhouse-01]
+
+TASK [Set environment vector] **************************************************
+ok: [clickhouse-01]
+
+TASK [Get clickhouse distrib] **************************************************
+ok: [clickhouse-01] => (item=clickhouse-client)
+ok: [clickhouse-01] => (item=clickhouse-server)
+failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": "./clickhouse-common-static-22.3.3.44.rpm", "elapsed": 0, "gid": 1000, "group": "vagrant", "item": "clickhouse-common-static", "mode": "0664", "msg": "Request failed", "owner": "vagrant", "response": "HTTP Error 404: Not Found", "size": 246310036, "state": "file", "status_code": 404, "uid": 1000, "url": "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-22.3.3.44.noarch.rpm"}
+
+TASK [Get clickhouse distrib] **************************************************
+ok: [clickhouse-01]
+
+TASK [Install clickhouse packages] *********************************************
+ok: [clickhouse-01]
+
+TASK [Flash handlers] **********************************************************
+
+TASK [Pause for 10 second for start servises] **********************************
+Pausing for 10 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [clickhouse-01]
+
+TASK [Create database] *********************************************************
+skipping: [clickhouse-01]
+
+PLAY RECAP *********************************************************************
+clickhouse-01              : ok=9    changed=1    unreachable=0    failed=0    skipped=3    rescued=1    ignored=0 
 
 #### 7. Запустите playbook на prod.yml окружении с флагом --diff. Убедитесь, что изменения на системе произведены.
 ```
