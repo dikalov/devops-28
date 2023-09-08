@@ -5,16 +5,11 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: 192.168.0.10
-      ansible_ssh_user: vagrant
-      ansible_ssh_pass: vagrant
-      
+      ansible_connection: docker
 vector:
   hosts:
-    clickhouse-02:
-      ansible_host: 192.168.0.12
-      ansible_ssh_user: vagrant
-      ansible_ssh_pass: vagrant
+    vector-01:
+      ansible_connection: docker
 ```
 #### 2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает vector. Конфигурация vector должна деплоиться через template файл jinja2.
 ```
