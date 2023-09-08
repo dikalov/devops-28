@@ -1,17 +1,11 @@
 ### Данный playbook:
 
-Загружает дистрибутивы указанные в одноимённых group_vars/{компонента}/vars.yml
-
-Устанавливает clickhouse
-
-Запускает clickhouse-server
-
-Устанавливает vector
+Устанавливает clichouse и vector на две виртуальные машины Centos7 docker, собранные с помощью docker-compose файла, запускает службу clichouse-server и vector, а также создает базу logs в clichouse.
 
 ### Для работы playbook:
 
-IP хоста нужно задать в файле инвентаризации prod.yml
+В каталоге group_vars задаются необходимые версии дистрибутивов.
 
-Отредактировать версии ПО возможно в group_vars\clickhouse
+Запустить из docker-compose.yml файла две виртуальные машины. (docker-compose up; docker ps)
 
-Запустить playbook
+Запустить ansible-playbook. (ansible-playbook -i inventory/prod.yml site.yml)
