@@ -6,6 +6,6 @@
 
 В каталоге group_vars задаются необходимые версии дистрибутивов.
 
-Запустить из docker-compose.yml файла две виртуальные машины. (docker-compose up; docker ps)
+Запустить из docker-compose.yml файла две виртуальные машины ```docker-compose up; docker ps```
 
-Запустить ansible-playbook. (ansible-playbook -i inventory/prod.yml site.yml)
+Запустить ansible-playbook ```ansible-playbook -i inventory/prod.yml site.yml```
