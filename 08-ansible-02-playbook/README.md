@@ -23,58 +23,20 @@ vector:
         name: clickhouse-server
         state: restarted
   tasks:
-    - name: Install tar
-      become: true
-      ansible.builtin.yum:
-        name: zip
-    - name: Get vector distrib
-      ansible.builtin.get_url:
-        url: "https://packages.timber.io/vector/0.21.1/{{ vector_version }}.tar.gz"
-        dest: "./{{ vector_version }}.tar.gz"
-        mode: 0755
-    - name: Creates directory /src/vector/
-      become: true
-      ansible.builtin.file:
-        path: /src/vector/
-        state: directory
-        owner: vagrant
-        group: vagrant
-        mode: 0755
-    - name: CP
-      become: true
-      ansible.builtin.copy:
-        src: "./{{ vector_version }}.tar.gz"
-        dest: /src/vector/{{ vector_version }}.tar.gz
-        mode: 0755
-        remote_src: yes
-    - name: GUNZP
-      ansible.builtin.shell: gunzip -f /src/vector/{{ vector_version }}.tar.gz
-    - name: UNZIP
-      become: true
-      ansible.builtin.unarchive:      
-        src: /src/vector/{{ vector_version }}.tar
-        dest: /src/vector/
-        extra_opts: [--strip-components=2]
-        mode: 0755
-        remote_src: yes
-      ignore_errors: "{{ ansible_check_mode }}"        
-    - name: Set environment vector
-      become: true
-      ansible.builtin.template:
-        src: templates/vector.sh.j2
-        dest: /etc/profile.d/vector.sh
-        mode: 0755
-    - block:
+    - name: Mess with clickhouse distrib
+      block:
         - name: Get clickhouse distrib
           ansible.builtin.get_url:
             url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
             dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+            mode: "0644"
           with_items: "{{ clickhouse_packages }}"
       rescue:
-        - name: Get clickhouse distrib
+        - name: Get clickhouse distrib (rescue)
           ansible.builtin.get_url:
             url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
             dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+            mode: "0644"
     - name: Install clickhouse packages
       become: true
       ansible.builtin.yum:
@@ -83,16 +45,37 @@ vector:
           - clickhouse-client-{{ clickhouse_version }}.rpm
           - clickhouse-server-{{ clickhouse_version }}.rpm
       notify: Start clickhouse service
-    - name: Flash handlers
+    - name: Flush handlers to restart clickhouse
       ansible.builtin.meta: flush_handlers
-    - name: Pause for 10 second for start servises
-      pause:
-        seconds: 10
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
+      become: true
       register: create_db
-      failed_when: create_db.rc != 0 and create_db.rc !=82
+      failed_when: create_db.rc != 0 and create_db.rc != 82
       changed_when: create_db.rc == 0
+
+- name: Install vector
+  hosts: clickhouse
+  handlers:
+    - name: Start vector service
+      become: true
+      ansible.builtin.service:
+        name: vector
+        state: restarted
+  tasks:
+    - name: Get vector distrib
+      ansible.builtin.get_url:
+        url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
+        dest: "./vector-{{ vector_version }}.rpm"
+        mode: "0644"
+      notify: Start vector service
+    - name: Install vector packages
+      become: true
+      ansible.builtin.yum:
+        name:
+          - vector-{{ vector_version }}.rpm
+    - name: Flush handlers to restart vector
+      ansible.builtin.meta: flush_handlers
 ```
 #### 3. При создании tasks рекомендую использовать модули: get_url, template, unarchive, file.
 
