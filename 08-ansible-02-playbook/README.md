@@ -177,114 +177,351 @@ clickhouse:
 
 #### 6. Попробуйте запустить playbook на этом окружении с флагом --check.
 ```
-vagrant@server1:~/an-home/playbook$ ansible-playbook site.yml -i inventory/prod.yml --check
-PLAY [Install Vector] ***********************************************************************************************************************************************************************************************************************
-TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Get Vector distrib] *******************************************************************************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Install Vector packages] **************************************************************************************************************************************************************************************************************
-fatal: [vector-01]: FAILED! => {"changed": false, "module_stderr": "/bin/sh: sudo: command not found\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 127}
-PLAY RECAP **********************************************************************************************************************************************************************************************************************************
-vector-01                  : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+vagrant@server1:~/an-home/playbook$ ansible-playbook -i inventory/prod.yml site.yml --check
+
+PLAY [Install Clickhouse & Vector] *****************************************************************************************************************
+
+TASK [Clickhouse. Get clickhouse distrib] **********************************************************************************************************
+ok: [clickhouse-01] => (item=clickhouse-client)
+ok: [clickhouse-01] => (item=clickhouse-server)
+failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": "./clickhouse-common-static_22.3.3.44_all.deb", "elapsed": 0, "item": "clickhouse-common-static", "msg": "Request failed", "response": "HTTP Error 404: Not Found", "status_code": 404, "url": "https://packages.clickhouse.com/deb/pool/stable/clickhouse-common-static_22.3.3.44_all.deb"}
+
+TASK [Clickhouse. Get clickhouse distrib] **********************************************************************************************************
+ok: [clickhouse-01] => (item=clickhouse-client)
+ok: [clickhouse-01] => (item=clickhouse-server)
+ok: [clickhouse-01] => (item=clickhouse-common-static)
+
+TASK [Clickhouse. Install package clickhouse-common-static] ****************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Clickhouse. Install package clickhouse-client] ***********************************************************************************************
+fatal: [clickhouse-01]: FAILED! => {"changed": false, "msg": "Dependency is not satisfiable: clickhouse-common-static (= 22.3.3.44)\n"}
+
+RUNNING HANDLER [Start clickhouse service] *********************************************************************************************************
+
+PLAY RECAP *****************************************************************************************************************************************
+clickhouse-01              : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=1    ignored=0
 ```
 
 #### 7. Запустите playbook на prod.yml окружении с флагом --diff. Убедитесь, что изменения на системе произведены.
 ```
-vagrant@server1:~/an-home/playbook$ ansible-playbook site.yml -i inventory/prod.yml --diff
-PLAY [Install Clickhouse] *******************************************************************************************************************************************************************************************************************
-TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
-ok: [clickhouse-01]
-TASK [Get clickhouse distrib] ***************************************************************************************************************************************************************************************************************
+vagrant@server1:~/an-home/playbook$ ansible-playbook -i inventory/prod.yml site.yml --diff
+
+PLAY [Install Clickhouse & Vector] *****************************************************************************************************************
+
+TASK [Clickhouse. Get clickhouse distrib] **********************************************************************************************************
 ok: [clickhouse-01] => (item=clickhouse-client)
 ok: [clickhouse-01] => (item=clickhouse-server)
-failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": "./clickhouse-common-static-22.3.3.44.rpm", "elapsed": 0, "gid": 0, "group": "root", "item": "clickhouse-common-static", "mode": "0644", "msg": "Request failed", "owner": "root", "response": "HTTP Error 404: Not Found", "size": 246310036, "state": "file", "status_code": 404, "uid": 0, "url": "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-22.3.3.44.noarch.rpm"}
-TASK [Get clickhouse distrib] ***************************************************************************************************************************************************************************************************************
-ok: [clickhouse-01]
-TASK [Install clickhouse packages] **********************************************************************************************************************************************************************************************************
-ok: [clickhouse-01]
-TASK [Create database] **********************************************************************************************************************************************************************************************************************
-ok: [clickhouse-01]
-PLAY [Install vector] ***********************************************************************************************************************************************************************************************************************
-TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Get vector distrib] *******************************************************************************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Install vector packages] **************************************************************************************************************************************************************************************************************
-ok: [vector-01]
-PLAY RECAP **********************************************************************************************************************************************************************************************************************************
-clickhouse-01              : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0
-vector-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-```
+failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": "./clickhouse-common-static_22.3.3.44_all.deb", "elapsed": 0, "item": "clickhouse-common-static", "msg": "Request failed", "response": "HTTP Error 404: Not Found", "status_code": 404, "url": "https://packages.clickhouse.com/deb/pool/stable/clickhouse-common-static_22.3.3.44_all.deb"}
 
-```
-cat /etc/vector/vector.toml
-#                                    __   __  __
-#                                    \ \ / / / /
-#                                     \ V / / /
-#                                      \_/  \/
-#
-#                                    V E C T O R
-#                                   Configuration
-#
-# ------------------------------------------------------------------------------
-# Website: https://vector.dev
-# Docs: https://vector.dev/docs
-# Chat: https://chat.vector.dev
-# ------------------------------------------------------------------------------
-# Change this to use a non-default directory for Vector data storage:
-# data_dir = "/var/lib/vector"
-# Random Syslog-formatted logs
-[sources.dummy_logs]
-type = "demo_logs"
-format = "syslog"
-interval = 1
-# Parse Syslog logs
-# See the Vector Remap Language reference for more info: https://vrl.dev
-[transforms.parse_logs]
-type = "remap"
-inputs = ["dummy_logs"]
-source = '''
-. = parse_syslog!(string!(.message))
-'''
-# Print parsed logs to stdout
-[sinks.print]
-type = "console"
-inputs = ["parse_logs"]
-encoding.codec = "json"
-# Vector's GraphQL API (disabled by default)
-# Uncomment to try it out with the `vector top` command or
-# in your browser at http://localhost:8686
-#[api]
-#enabled = true
-#address = "127.0.0.1:8686"
+TASK [Clickhouse. Get clickhouse distrib] **********************************************************************************************************
+ok: [clickhouse-01] => (item=clickhouse-client)
+ok: [clickhouse-01] => (item=clickhouse-server)
+ok: [clickhouse-01] => (item=clickhouse-common-static)
+
+TASK [Clickhouse. Install package clickhouse-common-static] ****************************************************************************************
+Selecting previously unselected package clickhouse-common-static.
+(Reading database ... 40625 files and directories currently installed.)
+Preparing to unpack .../clickhouse-common-static_22.3.3.44_amd64.deb ...
+Unpacking clickhouse-common-static (22.3.3.44) ...
+Setting up clickhouse-common-static (22.3.3.44) ...
+changed: [clickhouse-01]
+
+TASK [Clickhouse. Install package clickhouse-client] ***********************************************************************************************
+Selecting previously unselected package clickhouse-client.
+(Reading database ... 40639 files and directories currently installed.)
+Preparing to unpack .../clickhouse-client_22.3.3.44_all.deb ...
+Unpacking clickhouse-client (22.3.3.44) ...
+Setting up clickhouse-client (22.3.3.44) ...
+changed: [clickhouse-01]
+
+TASK [Clickhouse. Install clickhouse package clickhouse-server] ************************************************************************************
+Selecting previously unselected package clickhouse-server.
+(Reading database ... 40650 files and directories currently installed.)
+Preparing to unpack .../clickhouse-server_22.3.3.44_all.deb ...
+Unpacking clickhouse-server (22.3.3.44) ...
+Setting up clickhouse-server (22.3.3.44) ...
+Processing triggers for systemd (245.4-4ubuntu3.13) ...
+changed: [clickhouse-01]
+
+TASK [Clickhouse. Flush handlers] ******************************************************************************************************************
+
+RUNNING HANDLER [Start clickhouse service] *********************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Clickhouse. Waiting while clickhouse-server is available...] *********************************************************************************
+Pausing for 10 seconds (output is hidden)
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [clickhouse-01]
+
+TASK [Clickhouse. Create database] *****************************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Create work directory] ***************************************************************************************************************
+--- before
++++ after
+@@ -1,5 +1,5 @@
+ {
+-    "mode": "0775",
++    "mode": "0755",
+     "path": "/home/vagrant/vector",
+-    "state": "absent"
++    "state": "directory"
+ }
+
+changed: [clickhouse-01]
+
+TASK [Vector. Get Vector distributive] *************************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Unzip archive] ***********************************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Install vector binary file] **********************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Check Vector installation] ***********************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Create Vector config vector.toml] ****************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Create vector.service daemon] ********************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Modify vector.service file] **********************************************************************************************************
+--- before: /lib/systemd/system/vector.service
++++ after: /lib/systemd/system/vector.service
+@@ -8,7 +8,7 @@
+ User=vector
+ Group=vector
+ ExecStartPre=/usr/bin/vector validate
+-ExecStart=/usr/bin/vector
++ExecStart=/usr/bin/vector --config /etc/vector/vector.toml
+ ExecReload=/usr/bin/vector validate
+ ExecReload=/bin/kill -HUP $MAINPID
+ Restart=no
+
+changed: [clickhouse-01]
+
+TASK [Vector. Create user vector] ******************************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Create data_dir] *********************************************************************************************************************
+--- before
++++ after
+@@ -1,6 +1,6 @@
+ {
+-    "group": 0,
+-    "owner": 0,
++    "group": 1001,
++    "owner": 1001,
+     "path": "/var/lib/vector",
+-    "state": "absent"
++    "state": "directory"
+ }
+
+changed: [clickhouse-01]
+
+TASK [Vector. Remove work directory] ***************************************************************************************************************
+--- before
++++ after
+@@ -1,42 +1,4 @@
+ {
+     "path": "/home/vagrant/vector",
+-    "path_content": {
+-        "directories": [
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/bin",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sources",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sinks",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/transforms"
+-        ],
+-        "files": [
+-            "/home/vagrant/vector/vector-0.21.1-x86_64-unknown-linux-gnu.tar.gz",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/README.md",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/LICENSE",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/bin/vector",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd/hardened-vector.service",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd/vector.default",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd/vector.service",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/vector.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/wrapped_json.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/es_s3_hybrid.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/file_to_prometheus.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/prometheus_to_console.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/docs_example.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/environment_variables.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/file_to_cloudwatch_metrics.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/stdio.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/vector.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sources/apache_logs.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sinks/s3_archives.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sinks/es_cluster.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/transforms/apache_sample.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/transforms/apache_parser.toml"
+-        ]
+-    },
+-    "state": "directory"
++    "state": "absent"
+ }
+
+changed: [clickhouse-01]
+
+RUNNING HANDLER [Start Vector service] *************************************************************************************************************
+changed: [clickhouse-01]
+
+PLAY RECAP *****************************************************************************************************************************************
+clickhouse-01              : ok=19   changed=17   unreachable=0    failed=0    skipped=0    rescued=1    ignored=0
 ```
 #### 8. Повторно запустите playbook с флагом --diff и убедитесь, что playbook идемпотентен.
 ```
 vagrant@server1:~/an-home/playbook$ ansible-playbook -i inventory/prod.yml site.yml --diff
-PLAY [Install Clickhouse] ******************************************************************************************************************************************************
-TASK [Gathering Facts] *********************************************************************************************************************************************************
-ok: [clickhouse-01]
-TASK [Get clickhouse distrib] **************************************************************************************************************************************************
+
+PLAY [Install Clickhouse & Vector] *****************************************************************************************************************
+
+TASK [Clickhouse. Get clickhouse distrib] **********************************************************************************************************
 ok: [clickhouse-01] => (item=clickhouse-client)
 ok: [clickhouse-01] => (item=clickhouse-server)
-failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": "./clickhouse-common-static-22.3.3.44.rpm", "elapsed": 0, "gid": 0, "group": "root", "item": "clickhouse-common-static", "mode": "0644", "msg": "Request failed", "owner": "root", "response": "HTTP Error 404: Not Found", "size": 246310036, "state": "file", "status_code": 404, "uid": 0, "url": "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-22.3.3.44.noarch.rpm"}
-TASK [Get clickhouse distrib] **************************************************************************************************************************************************
+failed: [clickhouse-01] (item=clickhouse-common-static) => {"ansible_loop_var": "item", "changed": false, "dest": "./clickhouse-common-static_22.3.3.44_all.deb", "elapsed": 0, "item": "clickhouse-common-static", "msg": "Request failed", "response": "HTTP Error 404: Not Found", "status_code": 404, "url": "https://packages.clickhouse.com/deb/pool/stable/clickhouse-common-static_22.3.3.44_all.deb"}
+
+TASK [Clickhouse. Get clickhouse distrib] **********************************************************************************************************
+ok: [clickhouse-01] => (item=clickhouse-client)
+ok: [clickhouse-01] => (item=clickhouse-server)
+ok: [clickhouse-01] => (item=clickhouse-common-static)
+
+TASK [Clickhouse. Install package clickhouse-common-static] ****************************************************************************************
 ok: [clickhouse-01]
-TASK [Install clickhouse packages] *********************************************************************************************************************************************
+
+TASK [Clickhouse. Install package clickhouse-client] ***********************************************************************************************
 ok: [clickhouse-01]
-TASK [Create database] *********************************************************************************************************************************************************
+
+TASK [Clickhouse. Install clickhouse package clickhouse-server] ************************************************************************************
 ok: [clickhouse-01]
-PLAY [Install vector] **********************************************************************************************************************************************************
-TASK [Gathering Facts] *********************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Get vector distrib] ******************************************************************************************************************************************************
-ok: [vector-01]
-TASK [Install vector packages] *************************************************************************************************************************************************
-ok: [vector-01]
-PLAY RECAP *********************************************************************************************************************************************************************
-clickhouse-01              : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0
-vector-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+TASK [Clickhouse. Flush handlers] ******************************************************************************************************************
+
+TASK [Clickhouse. Waiting while clickhouse-server is available...] *********************************************************************************
+Pausing for 10 seconds (output is hidden)
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [clickhouse-01]
+
+TASK [Clickhouse. Create database] *****************************************************************************************************************
+ok: [clickhouse-01]
+
+TASK [Vector. Create work directory] ***************************************************************************************************************
+--- before
++++ after
+@@ -1,5 +1,5 @@
+ {
+-    "mode": "0775",
++    "mode": "0755",
+     "path": "/home/vagrant/vector",
+-    "state": "absent"
++    "state": "directory"
+ }
+
+changed: [clickhouse-01]
+
+TASK [Vector. Get Vector distributive] *************************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Unzip archive] ***********************************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Install vector binary file] **********************************************************************************************************
+ok: [clickhouse-01]
+
+TASK [Vector. Check Vector installation] ***********************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Create Vector config vector.toml] ****************************************************************************************************
+ok: [clickhouse-01]
+
+TASK [Vector. Create vector.service daemon] ********************************************************************************************************
+changed: [clickhouse-01]
+
+TASK [Vector. Modify vector.service file] **********************************************************************************************************
+--- before: /lib/systemd/system/vector.service
++++ after: /lib/systemd/system/vector.service
+@@ -8,7 +8,7 @@
+ User=vector
+ Group=vector
+ ExecStartPre=/usr/bin/vector validate
+-ExecStart=/usr/bin/vector
++ExecStart=/usr/bin/vector --config /etc/vector/vector.toml
+ ExecReload=/usr/bin/vector validate
+ ExecReload=/bin/kill -HUP $MAINPID
+ Restart=no
+
+changed: [clickhouse-01]
+
+TASK [Vector. Create user vector] ******************************************************************************************************************
+ok: [clickhouse-01]
+
+TASK [Vector. Create data_dir] *********************************************************************************************************************
+ok: [clickhouse-01]
+
+TASK [Vector. Remove work directory] ***************************************************************************************************************
+--- before
++++ after
+@@ -1,42 +1,4 @@
+ {
+     "path": "/home/vagrant/vector",
+-    "path_content": {
+-        "directories": [
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/bin",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sources",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sinks",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/transforms"
+-        ],
+-        "files": [
+-            "/home/vagrant/vector/vector-0.21.1-x86_64-unknown-linux-gnu.tar.gz",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/README.md",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/LICENSE",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/bin/vector",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd/hardened-vector.service",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd/vector.default",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/etc/systemd/vector.service",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/vector.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/wrapped_json.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/es_s3_hybrid.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/file_to_prometheus.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/prometheus_to_console.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/docs_example.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/environment_variables.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/file_to_cloudwatch_metrics.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/stdio.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/vector.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sources/apache_logs.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sinks/s3_archives.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/sinks/es_cluster.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/transforms/apache_sample.toml",
+-            "/home/vagrant/vector/vector-x86_64-unknown-linux-gnu/config/examples/namespacing/transforms/apache_parser.toml"
+-        ]
+-    },
+-    "state": "directory"
++    "state": "absent"
+ }
+
+changed: [clickhouse-01]
+
+RUNNING HANDLER [Start Vector service] *************************************************************************************************************
+ok: [clickhouse-01]
+
+PLAY RECAP *****************************************************************************************************************************************
+clickhouse-01              : ok=18   changed=7    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0
 ```
 #### 9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
 [Ссылка на README к playbook](https://github.com/dikalov/devops-28/blob/main/08-ansible-02-playbook/playbook/README.md)
