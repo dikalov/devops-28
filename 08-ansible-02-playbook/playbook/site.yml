@@ -35,7 +35,6 @@
                 mode: 0644
               with_items: "{{ clickhouse_packages }}"
 
-        # BUG https://github.com/ansible/ansible-modules-core/issues/1178
         - name: Clickhouse. Install package clickhouse-common-static
           become: true
           ansible.builtin.apt:
@@ -57,8 +56,6 @@
         - name: Clickhouse. Flush handlers
           ansible.builtin.meta: flush_handlers
 
-        # нужно подождать, когда clickhouse-server полностью поднимется, иначе при создании БД может быть ошибка:
-        # Code: 210. DB::NetException: Connection refused (localhost:9000). (NETWORK_ERROR)
         - name: Clickhouse. Waiting while clickhouse-server is available...
           ansible.builtin.pause:
             seconds: 10
@@ -141,7 +138,6 @@
           ansible.builtin.user:
             create_home: false
             name: "{{ vector_os_user }}"
-            # group: "{{ vector_os_group }}"
 
         - name: Vector. Create data_dir
           become: true
