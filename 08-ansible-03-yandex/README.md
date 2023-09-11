@@ -127,7 +127,7 @@
 ```
 #### 5. Запустите ansible-lint site.yml и исправьте ошибки, если они есть.
 ```
-# ansible-lint site.yml
+vagrant@server1:~/an-home/playbook$ ansible-lint site.yml
 
 Passed with production profile: 0 failure(s), 0 warning(s) on 1 files.
 ```
