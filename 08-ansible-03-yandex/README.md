@@ -116,7 +116,7 @@
     - name: Make nginx config
       become: true
       ansible.builtin.template:
-        src: /home/kali/lesson/devops-netology/08-ansible-03-yandex/templates/default.j2
+        src: /home/vagrant/an-home/playbook/templates/default.j2
         dest: /etc/nginx/sites-enabled/default
         mode: "0644"
       notify: Restart nginx service
@@ -124,4 +124,10 @@
       ansible.builtin.file:
         path: "./lighthouse.zip"
         state: absent
+```
+#### 5. Запустите ansible-lint site.yml и исправьте ошибки, если они есть.
+```
+# ansible-lint site.yml
+
+Passed with production profile: 0 failure(s), 0 warning(s) on 1 files.
 ```
