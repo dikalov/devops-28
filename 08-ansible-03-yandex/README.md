@@ -297,6 +297,7 @@ server {
                 try_files $uri $uri/ =404;
         }
 }
+```
 #### 8. Повторно запустите playbook с флагом --diff и убедитесь, что playbook идемпотентен.
 ```
 ansible-playbook site.yml -i inventory/prod.yml --diff
