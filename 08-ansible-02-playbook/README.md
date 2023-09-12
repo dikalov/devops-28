@@ -14,26 +14,71 @@ vector:
 #### 2. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает vector. Конфигурация vector должна деплоиться через template файл jinja2.
 ```
 ---
+- name: Install Clickhouse
+  hosts: clickhouse
+  handlers:
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: restarted
+  tasks:
+    - name: Download  distr
+      block:
+        - name: Get clickhouse distrib
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-client-{{ clickhouse_version }}.noarch.rpm"
+            dest: "./clickhouse-client-{{ clickhouse_version }}.rpm"
+            mode: '0644'
+          with_items: "{{ clickhouse_packages }}"
+      rescue:
+        - name: Get clickhouse distrib
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+            mode: '0644'
+    - name: Install clickhouse packages
+      become: true
+      ansible.builtin.yum:
+        name:
+          - clickhouse-common-static-{{ clickhouse_version }}.rpm
+          - clickhouse-client-{{ clickhouse_version }}.rpm
+          - clickhouse-server-{{ clickhouse_version }}.rpm
+      notify: Start clickhouse service
+    - name: Flush handlers
+      ansible.builtin.meta: flush_handlers
+    - name: Create database
+      ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
+      register: create_db
+      failed_when: create_db.rc != 0 and create_db.rc !=82
+      changed_when: create_db.rc == 0
+
+
 - name: Install Vector
   hosts: vector
+  handlers:
+    - name: Reload vector
+      become: true
+      ansible.builtin.service:
+        name: vector
+        state: restarted
   tasks:
     - name: Get Vector distrib
-      ansible.builtin.get_url: 
+      ansible.builtin.get_url:
         url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
         dest: "./vector-{{ vector_version }}-1.x86_64.rpm"
+        mode: 0644"
     - name: Install vector packages
       become: true
       ansible.builtin.yum:
         name:
-        - ./vector-{{ vector_version }}-1.x86_64.rpm
+          - vector-{{ vector_version }}-1.x86_64.rpm
         state: present
-    - name : Config template
+    - name: Config template
       ansible.builtin.template:
         src: vector.j2
         dest: vector.yml
         mode: "0644"
-        owner: "{{ ansible_user_id }}"
-        group: "{{ ansible_user_gid }}"
         validate: vector validate --no-environment --config-yaml %s
 ```
 #### 3. При создании tasks рекомендую использовать модули: get_url, template, unarchive, file.
