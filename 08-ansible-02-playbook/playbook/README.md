@@ -10,6 +10,6 @@ Clickhouse - версия 21.1.9.41-2 (указывается в group_vars\сli
 Vector - версия 0.21.1 (указывается в group_vars\vector\vars.yml)
 
 ### Описание Task
-Download distr - скачивает дистрибутив clickhouse Install clickhouse packages - устанавилвает пакеты для клиента сервара Create database - создает БД с таблицей
+Download distr - скачивает дистрибутив clickhouse Install clickhouse packages - устанавливает пакеты для клиента сервера Create database - создает БД с таблицей
 
-Install Vector - устанавилвает дистрибутив Vector Config template - настроит vector используя файл конфигурации jinja2 из папки templates
+Install Vector - устанавливает дистрибутив Vector Config template - настраивает vector через файл конфигурации jinja2 из папки templates.
