@@ -75,7 +75,7 @@
       become: true
       ansible.builtin.service:
         name: nginx
-        state: restarted
+        state: reload
   tasks:
     - name: Install nginx
       become: true
@@ -92,7 +92,7 @@
       become: true
       ansible.builtin.service:
         name: nginx
-        state: restarted
+        state: reload
   pre_tasks:
     - name: Install unzip
       become: true
