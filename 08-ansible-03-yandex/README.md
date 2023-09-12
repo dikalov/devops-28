@@ -284,7 +284,7 @@ lighthouse-01              : ok=9    changed=3    unreachable=0    failed=0    s
 vector-01                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 ```
-ssh user@158.160.63.5
+ssh user@158.160.39.253
 
 user@lighthouse-01:~$ cat /etc/nginx/sites-enabled/default
 server {
