@@ -1,6 +1,9 @@
 ---
 clickhouse:
   hosts:
-    clickhouse-01:
-      ansible_host: "192.168.10.10"
-      
+    centos7:
+      ansible_connection: docker
+vector:
+  hosts:
+    vector:
+      ansible_connection: docker
