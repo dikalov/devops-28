@@ -39,7 +39,31 @@ vagrant@server1:~/an-home/playbook$ cat requirements.yml
   version: "1.1.1"
 ```
 #### 9. Переработайте playbook на использование roles. Не забудьте про зависимости LightHouse и возможности совмещения roles с tasks.
+```
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  roles:
+    - clickhouse
 
+- name: Install Vector
+  hosts: vector
+  become: true
+  roles:
+    - vector
+
+- name: Install lighthouse and Nginx
+  hosts: lighthouse
+
+  pre_tasks:
+    - name: Lighthouse | Install git
+      become: true
+      ansible.builtin.yum:
+        name: git
+        state: present
+  roles:
+    - lighthouse
+```
 #### 10. Выложите playbook в репозиторий.
 
 #### 11. В ответе дайте ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.
