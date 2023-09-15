@@ -9,7 +9,7 @@
 ```
 #### 2. При помощи ansible-galaxy скачайте себе эту роль.
 ```
-ansible-galaxy install -r requirements.yml
+vagrant@server1:~/an-home/playbook$ ansible-galaxy install -r requirements.yml
 Starting galaxy role install process
 - extracting clickhouse to /root/.ansible/roles/clickhouse
 - clickhouse (1.11.0) was installed successfully
