@@ -118,3 +118,5 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 ```
 #### 6. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
+
+[lighthouse-role](https://github.com/dikalov/lighthouse-role/tree/main)
