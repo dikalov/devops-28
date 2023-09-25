@@ -28,7 +28,21 @@ ansible-lint
 flake8
 ```
 #### 2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи molecule init scenario --driver-name docker.
+```
+# molecule init scenario --driver-name docker
+INFO     Initializing new scenario default...
+INFO     Initialized scenario in /home/vagrant/.ansible/roles/vector-role/molecule/default successfully.
+```
 #### 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
+```
+# molecule init scenario centos8 --driver-name docker
+INFO     Initializing new scenario centos8...
+INFO     Initialized scenario in /home/vagrant/.ansible/roles/vector-role/molecule/centos8 successfully.
+
+# molecule init scenario ubuntu_latest --driver-name docker
+INFO     Initializing new scenario ubuntu_latest...
+INFO     Initialized scenario in /home/vagrant/.ansible/roles/vector-role/molecule/ubuntu_latest successfully.
+```
 #### 4. Добавьте несколько assert в verify.yml-файл для проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска и др.).
 #### 5. Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
 #### 6. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
