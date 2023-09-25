@@ -119,7 +119,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0    s
 ```
 #### 6. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
-[Новый тэг на vector](https://github.com/dikalov/vector-role)
+[Новый тэг на vector](https://github.com/dikalov/vector-role/tree/v.1.3)
 
 ### Tox
 #### 1. Добавьте в директорию с vector-role файлы из директории.
