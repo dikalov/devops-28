@@ -31,7 +31,7 @@ flake8
 ```
 # molecule init scenario --driver-name docker
 INFO     Initializing new scenario default...
-INFO     Initialized scenario in /home/vagrant/.ansible/roles/vector-role/molecule/default successfully.
+INFO     Initialized scenario in /root/ansible_role/roles/vector-role/molecule/default successfully
 ```
 #### 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
 ```
