@@ -1,6 +1,8 @@
 ## Домашнее задание к занятию 5 «Тестирование roles»
 ![image](https://github.com/dikalov/devops-28/assets/126553776/e940b3b4-b099-42d2-a0d9-504d2750ef49)
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/5baa5780-e59d-4b2e-aabc-2c579750cc48)
+
 ### Molecule
 
 #### 1. Запустите molecule test -s centos_7 внутри корневой директории clickhouse-role, посмотрите на вывод команды. Данная команда может отработать с ошибками, это нормально. Наша цель - посмотреть как другие в реальном мире используют молекулу.
