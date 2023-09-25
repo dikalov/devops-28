@@ -44,5 +44,77 @@ INFO     Initializing new scenario ubuntu_latest...
 INFO     Initialized scenario in /home/vagrant/.ansible/roles/vector-role/molecule/ubuntu_latest successfully.
 ```
 #### 4. Добавьте несколько assert в verify.yml-файл для проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска и др.).
+```
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  vars:
+    vector_config_path: /etc/vector/vector.yaml
+  tasks:
+
+  - name: Get Vector version
+    ansible.builtin.command: "vector --version"
+    changed_when: false
+    register: vector_version
+  - name: Assert Vector instalation
+    assert:
+      that: "'{{ vector_version.rc }}' == '0'"
+
+  - name: Validation Vector configuration
+    ansible.builtin.command: "vector validate --no-environment --config-yaml {{ vector_config_path }}"
+    changed_when: false
+    register: vector_validate
+  - name: Assert Vector validate config
+    assert:
+      that: "'{{ vector_validate.rc }}' == '0'"
+```
 #### 5. Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
+```
+PLAY [Verify] ******************************************************************
+
+TASK [Get Vector version] ******************************************************
+ok: [instance]
+
+TASK [Assert Vector instalation] ***********************************************
+ok: [instance] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Validation Vector configuration] *****************************************
+ok: [instance]
+
+TASK [Assert Vector validate config] *******************************************
+ok: [instance] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+instance                   : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
+INFO     Running ubuntu_latest > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running ubuntu_latest > destroy
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Set async_dir for HOME env] **********************************************
+ok: [localhost]
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: [localhost]: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=instance)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+```
 #### 6. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
