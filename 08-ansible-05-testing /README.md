@@ -119,4 +119,4 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0    s
 ```
 #### 6. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
 
-[lighthouse-role](https://github.com/dikalov/lighthouse-role/tree/main)
+[Новый тэг на vector](https://github.com/dikalov/vector-role)
