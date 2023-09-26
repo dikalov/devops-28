@@ -12,6 +12,7 @@
 5. Done fix -> On test.
 6. On test -> On fix, Done.
 7. Done -> Closed, Open.
+![image](https://github.com/dikalov/devops-28/assets/126553776/329b40d8-6931-4ee2-a533-468e7a336b2a)
 
 
 
