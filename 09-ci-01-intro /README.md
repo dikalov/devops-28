@@ -13,18 +13,21 @@
 6. On test -> On fix, Done.
 7. Done -> Closed, Open.
 ![image](https://github.com/dikalov/devops-28/assets/126553776/329b40d8-6931-4ee2-a533-468e7a336b2a)
-## Остальные задачи должны проходить по упрощённому workflow:
+#### Остальные задачи должны проходить по упрощённому workflow:
 1. Open -> On develop.
 2. On develop -> Open, Done develop.
 3. Done develop -> On test.
 4. On test -> On develop, Done.
 5. Done -> Closed, Open.
+![image](https://github.com/dikalov/devops-28/assets/126553776/a5423a2e-658e-4d4d-92ae-b9fd1f6efbc6)
 
-
-
-
-
-
+#### Что нужно сделать
+1. Создайте задачу с типом bug, попытайтесь провести его по всему workflow до Done.
+2. Создайте задачу с типом epic, к ней привяжите несколько задач с типом task, проведите их по всему workflow до Done.
+3. При проведении обеих задач по статусам используйте kanban.
+4. Верните задачи в статус Open.
+5. Перейдите в Scrum, запланируйте новый спринт, состоящий из задач эпика и одного бага, стартуйте спринт, проведите задачи до состояния Closed. Закройте спринт.
+6. Если всё отработалось в рамках ожидания — выгрузите схемы workflow для импорта в XML. Файлы с workflow и скриншоты workflow приложите к решению задания.
 
 
 
