@@ -13,6 +13,16 @@
 6. On test -> On fix, Done.
 7. Done -> Closed, Open.
 ![image](https://github.com/dikalov/devops-28/assets/126553776/329b40d8-6931-4ee2-a533-468e7a336b2a)
+## Остальные задачи должны проходить по упрощённому workflow:
+1. Open -> On develop.
+2. On develop -> Open, Done develop.
+3. Done develop -> On test.
+4. On test -> On develop, Done.
+5. Done -> Closed, Open.
+
+
+
+
 
 
 
