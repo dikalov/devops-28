@@ -30,5 +30,6 @@
 6. Если всё отработалось в рамках ожидания — выгрузите схемы workflow для импорта в XML. Файлы с workflow и скриншоты workflow приложите к решению задания.
 ![image](https://github.com/dikalov/devops-28/assets/126553776/66970067-2337-4d73-b9ab-54a488bff455)
 
-[Ссылка Bug](https://github.com/dikalov/vector-role/tree/v.1.4)
+[Ссылка Bug](https://github.com/dikalov/devops-28/blob/main/09-ci-01-intro%20/Bug%20workflow.xml)
 
+[Ссылка Bug](https://github.com/dikalov/devops-28/blob/main/09-ci-01-intro%20/Bug%20workflow.xml)
