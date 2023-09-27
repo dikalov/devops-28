@@ -175,6 +175,41 @@ OS name: "linux", version: "4.18.0-408.el8.x86_64", arch: "amd64", family: "unix
 5. Заберите директорию mvn с pom.
 
 ## Основная часть
-
-
+1. Поменяйте в pom.xml блок с зависимостями под ваш артефакт из первого пункта задания для Nexus (java с версией 8_282).
+2. Запустите команду mvn package в директории с pom.xml, ожидайте успешного окончания.
+```
+...................
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar (38 kB at 395 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.1/commons-lang-2.1.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.15/plexus-interpolation-1.15.jar (60 kB at 400 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.1/plexus-archiver-2.1.jar (184 kB at 1.2 MB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar (22 kB at 130 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.2/plexus-io-2.0.2.jar (58 kB at 223 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/commons-lang/commons-lang/2.1/commons-lang-2.1.jar (208 kB at 796 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar (226 kB at 516 kB/s)
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /root/terraform/09_03_CICD/mvn/target/simple-app-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20.848 s
+[INFO] Finished at: 2023-09-27T16:16:27Z
+[INFO] ------------------------------------------------------------------------
+```
+3. Проверьте директорию ~/.m2/repository/, найдите ваш артефакт.
+```
+vagrant@server1:~/.m2/repository/netology/java/8_282# ls -l
+total 12
+-rw-r--r-- 1 root root   0 Nov  8 20:36 java-8_282-distrib.tar.gz
+-rw-r--r-- 1 root root  40 Nov  8 20:36 java-8_282-distrib.tar.gz.sha1
+-rw-r--r-- 1 root root 392 Nov  8 20:36 java-8_282.pom.lastUpdated
+-rw-r--r-- 1 root root 175 Nov  8 20:36 _remote.repositories
+```
+4. В ответе пришлите исправленный файл pom.xml.
+[Файл_maven-metadata](https://github.com/dikalov/devops-28/blob/main/09-ci-03-cicd%20/maven-metadata.xml)
 
