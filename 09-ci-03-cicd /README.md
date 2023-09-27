@@ -154,6 +154,8 @@ while (index < 10):
 2. В него же загрузите такой же артефакт, но с version: 8_102.
 3. Проверьте, что все файлы загрузились успешно.
 ![image](https://github.com/dikalov/devops-28/assets/126553776/1679521e-e34e-4832-9376-964d1e2c5546)
+
 4. В ответе пришлите файл maven-metadata.xml для этого артефекта.
+
 [Файл_maven-metadata](https://github.com/dikalov/devops-28/blob/main/09-ci-03-cicd%20/maven-metadata.xml)
 
