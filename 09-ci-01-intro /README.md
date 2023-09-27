@@ -32,4 +32,4 @@
 
 [Ссылка Bug](https://github.com/dikalov/devops-28/blob/main/09-ci-01-intro%20/Bug%20workflow.xml)
 
-[Ссылка Bug](https://github.com/dikalov/devops-28/blob/main/09-ci-01-intro%20/Bug%20workflow.xml)
+[Ссылка All_workflow](https://github.com/dikalov/devops-28/blob/main/09-ci-01-intro%20/All_workflow.xml)
