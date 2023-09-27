@@ -211,5 +211,6 @@ total 12
 -rw-r--r-- 1 root root 175 Nov  8 20:36 _remote.repositories
 ```
 4. В ответе пришлите исправленный файл pom.xml.
-[Файл_maven-metadata](https://github.com/dikalov/devops-28/blob/main/09-ci-03-cicd%20/maven-metadata.xml)
+
+[Файл_pom.xml](https://github.com/dikalov/devops-28/blob/main/09-ci-03-cicd%20/pom.xml)
 
