@@ -131,13 +131,22 @@ INFO: ------------------------------------------------------------------------
 6. Посмотрите результат в интерфейсе.
 ![image](https://github.com/dikalov/devops-28/assets/126553776/10d2f408-21fe-42e9-8c40-6c1f6e7c8723)
 7. Исправьте ошибки, которые он выявил, включая warnings.
+```
+vagrant@server1:~/terraform/09_03_CICD/example# cat fail.py
+def increment(index):
+    index += 1
+    return index
+def get_square(numb):
+    return numb*numb
+def print_numb(numb):
+    print("Number is {}".format(numb))
 
-
-
-
-
-Запустите анализатор повторно — проверьте, что QG пройдены успешно.
-Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
+index = 0
+while (index < 10):
+    index = increment(index)
+```
+8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
+9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
 
 
 
