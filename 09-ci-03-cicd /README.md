@@ -159,3 +159,22 @@ while (index < 10):
 
 [Файл_maven-metadata](https://github.com/dikalov/devops-28/blob/main/09-ci-03-cicd%20/maven-metadata.xml)
 
+## Знакомство с Maven
+1. Скачайте дистрибутив с maven.
+2. Разархивируйте, сделайте так, чтобы binary был доступен через вызов в shell (или поменяйте переменную PATH, или любой другой, удобный вам способ).
+3. Удалите из apache-maven-<version>/conf/settings.xml упоминание о правиле, отвергающем HTTP- соединение — раздел mirrors —> id: my-repository-http-unblocker.
+4. Проверьте mvn --version.
+```
+vagrant@server1:~/terraform/09_03_CICD/apache-maven/bin# mvn --version
+Apache Maven 3.8.7 (7395037flsmru75mg8e4kd75nf7jd84mdbc69i75)
+Maven home: /opt/apache-maven-3.8.7
+Java version: 1.8.0_352, vendor: Red Hat, Inc., runtime: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el8.x86_64/jre
+Default locale: ru_RU, platform encoding: UTF-8
+OS name: "linux", version: "4.18.0-408.el8.x86_64", arch: "amd64", family: "unix"
+```
+5. Заберите директорию mvn с pom.
+
+## Основная часть
+
+
+
