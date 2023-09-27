@@ -150,14 +150,10 @@ while (index < 10):
 ![image](https://github.com/dikalov/devops-28/assets/126553776/845c98d0-bd3e-45be-a7d6-bfb101eb04d1)
 
 ## Знакомство с Nexus
-В репозиторий maven-public загрузите артефакт с GAV-параметрами:
-groupId: netology;
-artifactId: java;
-version: 8_282;
-classifier: distrib;
-type: tar.gz.
-В него же загрузите такой же артефакт, но с version: 8_102.
-Проверьте, что все файлы загрузились успешно.
-В ответе пришлите файл maven-metadata.xml для этого артефекта.
+1. В репозиторий maven-public загрузите артефакт с GAV-параметрами: groupId: netology; artifactId: java; version: 8_282; classifier: distrib; type: tar.gz.
+2. В него же загрузите такой же артефакт, но с version: 8_102.
+3. Проверьте, что все файлы загрузились успешно.
+![image](https://github.com/dikalov/devops-28/assets/126553776/1679521e-e34e-4832-9376-964d1e2c5546)
+4. В ответе пришлите файл maven-metadata.xml для этого артефекта.
 
 
