@@ -476,5 +476,31 @@ GitHub has been notified of this commit’s build result
 Finished: SUCCESS
 ```
 #### 5. Создать Scripted Pipeline, наполнить его скриптом из pipeline.
+![image](https://github.com/dikalov/devops-28/assets/126553776/d4654b60-6589-44bb-972a-2df043ca306a)
+
+#### 6. Внести необходимые изменения, чтобы Pipeline запускал ansible-playbook без флагов --check --diff, если не установлен параметр при запуске джобы (prod_run = True). По умолчанию параметр имеет значение False и запускает прогон с флагами --check --diff.
+```
+node("linux"){
+    stage("Git checkout"){
+        git credentialsId: '7943d9ab-efa7-4520-b128-48f13295c4ae', url: 'https://github.com/aragastmatb/example-playbook.git'
+    }
+    
+    stage("Run playbook"){
+        if ( "${prod_run}" == "true" ){
+            sh 'ansible-playbook site.yml -i inventory/prod.yml'
+            
+        }
+        else{
+            sh 'ansible-playbook site.yml -i inventory/prod.yml --check --diff'
+        }
+        
+    }
+}
+```
+#### 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл ScriptedJenkinsfile.
+![image](https://github.com/dikalov/devops-28/assets/126553776/6922e136-68c7-4e8b-8588-c9295e5856f3)
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/d6570ef8-d2aa-40bc-9d04-d78b4ef9ec7a)
+
 
 
