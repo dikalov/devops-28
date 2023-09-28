@@ -548,3 +548,5 @@ PLAY RECAP *********************************************************************
 [Vector-role](https://github.com/dikalov/devops-28/tree/main/08-ansible-04-role%20/playbook/roles/vector)
 
 [Scripted Pipeline](https://github.com/dikalov/devops-28/blob/main/08-ansible-04-role%20/playbook/roles/vector/ScriptedJenkinsfile)
+
+[Declarative Pipeline](https://github.com/dikalov/devops-28/blob/main/08-ansible-04-role%20/playbook/roles/vector/Jenkinsfile)
