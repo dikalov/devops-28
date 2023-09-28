@@ -103,5 +103,7 @@ PLAY RECAP *********************************************************************
 jenkins-agent-01           : ok=17   changed=14   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 jenkins-master-01          : ok=11   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
+## Основная часть
+#### 1. Сделать Freestyle Job, который будет запускать molecule test из любого вашего репозитория с ролью.
 
 
