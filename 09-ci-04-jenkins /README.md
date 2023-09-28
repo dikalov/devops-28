@@ -502,5 +502,6 @@ node("linux"){
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/d6570ef8-d2aa-40bc-9d04-d78b4ef9ec7a)
 
+#### 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
 
