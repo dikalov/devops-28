@@ -545,4 +545,4 @@ PLAY RECAP *********************************************************************
 ```
 #### 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
-
+[Vector-role](https://github.com/dikalov/devops-28/tree/main/08-ansible-04-role%20/playbook/roles/vector)
