@@ -501,7 +501,48 @@ node("linux"){
 ![image](https://github.com/dikalov/devops-28/assets/126553776/6922e136-68c7-4e8b-8588-c9295e5856f3)
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/d6570ef8-d2aa-40bc-9d04-d78b4ef9ec7a)
+Prod_run true
+```
+[Pipeline] { (Run playbook) [Pipeline] sh + ansible-playbook site.yml -i inventory/prod.yml
+PLAY [Install Java] ************************************************************
 
+TASK [Gathering Facts] ********************************************************* /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature ok: [localhost]
+
+TASK [java : Upload .tar.gz file containing binaries from local storage] ******* skipping: [localhost]
+
+TASK [java : Upload .tar.gz file conaining binaries from remote storage] ******* ok: [localhost]
+
+TASK [java : Ensure installation dir exists] *********************************** ok: [localhost]
+
+TASK [java : Extract java in the installation directory] *********************** skipping: [localhost]
+
+TASK [java : Export environment variables] ************************************* ok: [localhost]
+
+PLAY RECAP ********************************************************************* localhost : ok=4 changed=0 unreachable=0 failed=0 skipped=2 rescued=0 ignored=0
+
+[Pipeline] } [Pipeline] // stage [Pipeline] } [Pipeline] // node [Pipeline] End of Pipeline Finished: SUCCESS
+```
+Prod_run false
+```
+[Pipeline] { (Run playbook) [Pipeline] sh + ansible-playbook site.yml -i inventory/prod.yml --check --diff
+PLAY [Install Java] ************************************************************
+
+TASK [Gathering Facts] ********************************************************* /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature ok: [localhost]
+
+TASK [java : Upload .tar.gz file containing binaries from local storage] ******* skipping: [localhost]
+
+TASK [java : Upload .tar.gz file conaining binaries from remote storage] ******* ok: [localhost]
+
+TASK [java : Ensure installation dir exists] *********************************** ok: [localhost]
+
+TASK [java : Extract java in the installation directory] *********************** skipping: [localhost]
+
+TASK [java : Export environment variables] ************************************* ok: [localhost]
+
+PLAY RECAP ********************************************************************* localhost : ok=4 changed=0 unreachable=0 failed=0 skipped=2 rescued=0 ignored=0
+
+[Pipeline] } [Pipeline] // stage [Pipeline] } [Pipeline] // node [Pipeline] End of Pipeline Finished: SUCCESS
+```
 #### 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
 
