@@ -348,3 +348,133 @@ INFO Pruning extra files from scenario ephemeral directory [Pipeline] cleanWs [W
 #### 3. Перенести Declarative Pipeline в репозиторий в файл Jenkinsfile.
 [Файл Jenkinsfile](https://github.com/dikalov/devops-28/blob/main/08-ansible-04-role%20/playbook/roles/vector/Jenkinsfile)
 
+#### 4. Создать Multibranch Pipeline на запуск Jenkinsfile из репозитория.
+![image](https://github.com/dikalov/devops-28/assets/126553776/d6156213-20e6-4de7-ad3a-44e2040d7ca7)
+```
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ******************************************** changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) deletion to complete] ******************************* FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left). ok: [localhost] => (item=instance)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP ********************************************************************* localhost : ok=2 changed=1 unreachable=0 failed=0 skipped=1 rescued=0 ignored=0
+
+INFO Running default > syntax
+
+playbook: /opt/jenkins_agent/workspace/Multibranch_Pipeline_main/roles/vector-role/molecule/default/converge.yml /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature INFO Running default > create /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature [WARNING]: Collection community.docker does not support Ansible version 2.10.17
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] ********************************************** skipping: [localhost] => (item=None) skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************ ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True})
+
+TASK [Create Dockerfiles from image names] ************************************* skipping: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True})
+
+TASK [Discover local Docker images] ******************************************** ok: [localhost] => (item={'changed': False, 'skipped': True, 'skip_reason': 'Conditional result was False', 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] ********************************* skipping: [localhost] => (item=molecule_local/docker.io/pycontribs/centos:7)
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ******************************************** ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True})
+
+TASK [Create molecule instance(s)] ********************************************* changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) creation to complete] ******************************* FAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left). changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '163475297165.3894', 'results_file': '/home/jenkins/.ansible_async/163475297165.3894', 'changed': True, 'failed': False, 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP ********************************************************************* localhost : ok=5 changed=2 unreachable=0 failed=0 skipped=4 rescued=0 ignored=0
+
+INFO Running default > prepare WARNING Skipping, prepare playbook not configured. INFO Running default > converge
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] ********************************************************* /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] ******************************* [WARNING]: Collection community.docker does not support Ansible version 2.10.17 changed: [instance]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] ******************************* skipping: [instance]
+
+TASK [vector-role : Install Vector packages | CentOS] ************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 changed: [instance]
+
+TASK [vector-role : Install Vector packages | Ubuntu] ************************** skipping: [instance]
+
+TASK [vector-role : Deploy config Vector] ************************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 [WARNING]: The value "0" (type int) was converted to "u'0'" (type string). If this does not look like what you expect, quote the entire value to ensure it does not change. changed: [instance]
+
+TASK [vector-role : Creates directory] ***************************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 changed: [instance]
+
+TASK [vector-role : Create systemd unit Vector] ******************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 changed: [instance]
+
+TASK [vector-role : Start Vector service] ************************************** skipping: [instance]
+
+RUNNING HANDLER [vector-role : Start Vector service] *************************** skipping: [instance]
+
+PLAY RECAP ********************************************************************* instance : ok=6 changed=5 unreachable=0 failed=0 skipped=4 rescued=0 ignored=0
+
+INFO Running default > idempotence
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] ********************************************************* /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] ******************************* [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] ******************************* skipping: [instance]
+
+TASK [vector-role : Install Vector packages | CentOS] ************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [vector-role : Install Vector packages | Ubuntu] ************************** skipping: [instance]
+
+TASK [vector-role : Deploy config Vector] ************************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 [WARNING]: The value "0" (type int) was converted to "u'0'" (type string). If this does not look like what you expect, quote the entire value to ensure it does not change. ok: [instance]
+
+TASK [vector-role : Creates directory] ***************************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [vector-role : Create systemd unit Vector] ******************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [vector-role : Start Vector service] ************************************** skipping: [instance]
+
+PLAY RECAP ********************************************************************* instance : ok=6 changed=0 unreachable=0 failed=0 skipped=3 rescued=0 ignored=0
+
+INFO Idempotence completed successfully. INFO Running default > side_effect WARNING Skipping, side effect playbook not configured. INFO Running default > verify INFO Running Ansible Verifier
+
+PLAY [Verify] ******************************************************************
+
+TASK [Get Vector version] ****************************************************** /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [Assert Vector instalation] *********************************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance] => { "changed": false, "msg": "All assertions passed" }
+
+TASK [Validation Vector configuration] ***************************************** [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance]
+
+TASK [Assert Vector validate config] ******************************************* [WARNING]: Collection community.docker does not support Ansible version 2.10.17 ok: [instance] => { "changed": false, "msg": "All assertions passed" }
+
+PLAY RECAP ********************************************************************* instance : ok=4 changed=0 unreachable=0 failed=0 skipped=0 rescued=0 ignored=0
+
+INFO Verifier completed successfully. INFO Running default > cleanup WARNING Skipping, cleanup playbook not configured. INFO Running default > destroy /usr/local/lib/python3.6/site-packages/ansible/parsing/vault/init.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography and will be removed in a future release. from cryptography.exceptions import InvalidSignature [WARNING]: Collection community.docker does not support Ansible version 2.10.17
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ******************************************** changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) deletion to complete] ******************************* FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left). changed: [localhost] => (item=instance)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP ********************************************************************* localhost : ok=2 changed=2 unreachable=0 failed=0 skipped=1 rescued=0 ignored=0
+
+INFO Pruning extra files from scenario ephemeral directory [Pipeline] cleanWs [WS-CLEANUP] Deleting project workspace... [WS-CLEANUP] Deferred wipeout is used... [WS-CLEANUP] done [Pipeline] } [Pipeline] // dir [Pipeline] } [Pipeline] // stage [Pipeline] } [Pipeline] // withEnv [Pipeline] } [Pipeline] // node [Pipeline] End of Pipeline
+
+Could not update commit status, please check if your scan credentials belong to a member of the organization or a collaborator of the repository and repo:status scope is selected
+
+GitHub has been notified of this commit’s build result
+
+Finished: SUCCESS
+```
+#### 5. Создать Scripted Pipeline, наполнить его скриптом из pipeline.
+
+
