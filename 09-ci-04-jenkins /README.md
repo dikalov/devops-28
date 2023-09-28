@@ -346,5 +346,5 @@ PLAY RECAP *********************************************************************
 INFO Pruning extra files from scenario ephemeral directory [Pipeline] cleanWs [WS-CLEANUP] Deleting project workspace... [WS-CLEANUP] Deferred wipeout is used... [WS-CLEANUP] done [Pipeline] } [Pipeline] // dir [Pipeline] } [Pipeline] // stage [Pipeline] } [Pipeline] // node [Pipeline] End of Pipeline Finished: SUCCESS
 ```
 #### 3. Перенести Declarative Pipeline в репозиторий в файл Jenkinsfile.
-(Файл)[https://github.com/dikalov/devops-28/blob/main/08-ansible-04-role%20/playbook/roles/vector/Jenkinsfile]
+[Файл Jenkinsfile](https://github.com/dikalov/devops-28/blob/main/08-ansible-04-role%20/playbook/roles/vector/Jenkinsfile)
 
