@@ -10,7 +10,7 @@ vagrant@server1:~/terraform/09_04_Jenkins/infrastructure# ansible-playbook -i in
 PLAY [Preapre all hosts] *****************************************************************************************************************
 
 TASK [Gathering Facts] *******************************************************************************************************************
-The authenticity of host '51.250.7.211 (51.250.7.211)' can't be established.
+The authenticity of host '51.250.6.112 (51.250.6.122)' can't be established.
 ECDSA key fingerprint is SHA256:q2On8wq0orKw+hr1fZT+cdIZKN1Fx+aE62TIQmqr9lM.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? ok: [jenkins-agent-01]
 yes
@@ -46,11 +46,11 @@ TASK [Install Jenkins and requirements] ****************************************
 changed: [jenkins-master-01]
 
 TASK [Ensure jenkins agents are present in known_hosts file] *****************************************************************************
-# 158.160.46.182:22 SSH-2.0-OpenSSH_7.4
-# 158.160.46.182:22 SSH-2.0-OpenSSH_7.4
-# 158.160.46.182:22 SSH-2.0-OpenSSH_7.4
-# 158.160.46.182:22 SSH-2.0-OpenSSH_7.4
-# 158.160.46.182:22 SSH-2.0-OpenSSH_7.4
+# 158.160.36.140:22 SSH-2.0-OpenSSH_7.4
+# 158.160.36.140:22 SSH-2.0-OpenSSH_7.4
+# 158.160.36.140:22 SSH-2.0-OpenSSH_7.4
+# 158.160.36.140:22 SSH-2.0-OpenSSH_7.4
+# 158.160.36.140:22 SSH-2.0-OpenSSH_7.4
 changed: [jenkins-master-01] => (item=jenkins-agent-01)
 [WARNING]: Module remote_tmp /home/jenkins/.ansible/tmp did not exist and was created with a mode of 0700, this may cause issues when
 running as another user. To avoid this, create the remote_tmp dir with the correct permissions manually
