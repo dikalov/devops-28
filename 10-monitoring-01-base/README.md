@@ -98,6 +98,16 @@ P.S.: если при запуске некоторые контейнеры б�
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/5b882f5a-63d0-4ac6-8e4a-45bc32414513)
 
+```
+docker run -d --name=telegraf \
+	-v $(pwd)/telegraf.conf:/etc/telegraf/telegraf.conf \
+	-v /var/run/docker.sock:/var/run/docker.sock \
+	--net=influxdb-net \
+	--user telegraf:$(stat -c '%g' /var/run/docker.sock) \
+	--env INFLUX_TOKEN=<your_api_key> \
+	telegraf
+```
+
 Docker-compose.yml
 ```
 version: '3'
