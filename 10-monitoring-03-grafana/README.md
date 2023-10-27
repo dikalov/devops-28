@@ -40,4 +40,5 @@ avg by (instance) (100 * ((avg_over_time(node_memory_MemFree_bytes{instance=~"no
 Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 В качестве решения задания приведите листинг этого файла.
 
+[Файл dashboard.json](https://github.com/dikalov/devops-28/blob/main/10-monitoring-03-grafana/dashboard.json)
 
