@@ -9,11 +9,17 @@
 
 ### Задание 2.
 Создайте Dashboard и в ней создайте Panels:
+
 утилизация CPU для nodeexporter (в процентах, 100-idle);
 ```
 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle", instance=~"nodeexporter:9100"}[1m])) * 100)
 ```
-2) CPULA 1/5/15;
+CPULA 1/5/15;
+```
+(avg by(instance) (node_load1{instance=~"nodeexporter:9100"}) * 100) / count by(instance) (count by(cpu, instance) (node_cpu_seconds_total{instance=~"nodeexporter:9100"}))
+(avg by(instance) (node_load5{instance=~"nodeexporter:9100"}) * 100) / count by(instance) (count by(cpu, instance) (node_cpu_seconds_total{instance=~"nodeexporter:9100"}))
+(avg by(instance) (node_load15{instance=~"nodeexporter:9100"}) * 100) / count by(instance) (count by(cpu, instance) (node_cpu_seconds_total{instance=~"nodeexporter:9100"}))
+```
 3) количество свободной оперативной памяти;
 4) количество места на файловой системе.
 
