@@ -9,7 +9,10 @@
 
 ### Задание 2.
 Создайте Dashboard и в ней создайте Panels:
-1) утилизация CPU для nodeexporter (в процентах, 100-idle);
+утилизация CPU для nodeexporter (в процентах, 100-idle);
+```
+100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle", instance=~"nodeexporter:9100"}[1m])) * 100)
+```
 2) CPULA 1/5/15;
 3) количество свободной оперативной памяти;
 4) количество места на файловой системе.
