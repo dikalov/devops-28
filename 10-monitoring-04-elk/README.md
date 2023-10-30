@@ -25,3 +25,6 @@ CONTAINER ID   IMAGE                    COMMAND                  CREATED        
 
 ![image](https://github.com/dikalov/devops-28/assets/126553776/06c26780-b5de-44a8-bc1f-cc808c06b8c6)
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/534fd17a-6a72-49ad-912a-72d363d592c2)
+
+
