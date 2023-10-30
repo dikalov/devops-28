@@ -14,4 +14,6 @@ CONTAINER ID   IMAGE                    COMMAND                  CREATED        
 2syc6hhd6778   elasticsearch:8.7.0      "/bin/tini -- /usr/l…"   13 minutes ago   Up 13 minutes   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 9300/tcp                                              es-hot
 9sg647fhf773   elasticsearch:8.7.0      "/bin/tini -- /usr/l…"   13 minutes ago   Up 13 minutes   9200/tcp, 9300/tcp                                                                               es-warm
 ```
+![image](https://github.com/dikalov/devops-28/assets/126553776/9fa5910a-59e2-4dea-87a9-5ffddb9da527)
+
 
