@@ -112,6 +112,8 @@ pinhhhh date = Fri Feb 16 12:05:59 UTC 2024
 app-multitool-busybox-5ef47ba9c5-wujhd:/# exit
 exit
 ```
+Всё хорошо!
+### Задание 2. Создать DaemonSet приложения, которое может прочитать логи ноды.
 
 
 
