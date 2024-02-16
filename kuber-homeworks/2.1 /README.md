@@ -121,15 +121,15 @@ exit
 
 Запустим манифест, заходим в ПОД и проверим доступность логов ноды:
 ```
-usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$ kubectl apply -f ~/manifests/05_dz_kuber_2.1/03_dms_multitool.yml
+vagrant@server:~/manifests/05_dz_kuber_2.1$ kubectl apply -f ~/manifests/05_dz_kuber_2.1/03_dms_multitool.yml
 daemonset.apps/logs-multitool created
-usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$ kubectl get pods -n dz6
+vagrant@server:~/manifests/05_dz_kuber_2.1$ kubectl get pods -n dz6
 NAME                                     READY   STATUS    RESTARTS   AGE
-app-multitool-busybox-7bf96cc9b6-zsvkt   2/2     Running   0          22m
+app-multitool-busybox-5ef47ba9c5-wujhd   2/2     Running   0          22m
 logs-multitool-f98x7                     1/1     Running   0          5s
-usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$
-usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$ kubectl exec -n dz6 logs-multitool-f98x7 -it -- bash
-logs-multitool-f98x7:/# ls -lah /
+vagrant@server:~/manifests/05_dz_kuber_2.1$
+vagrant@server:~/manifests/05_dz_kuber_2.1$ kubectl exec -n dz6 logs-multitool-b56z2 -it -- bash
+logs-multitool-b56z2:/# ls -lah /
 total 84K
 drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 .
 drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 ..
@@ -153,7 +153,7 @@ dr-xr-xr-x   13 root     root           0 Feb 16 20:24 sys
 drwxrwxrwt    2 root     root        4.0K Aug  7 13:09 tmp
 drwxr-xr-x    1 root     root        4.0K Aug  7 13:09 usr
 drwxr-xr-x    1 root     root        4.0K Sep 14 11:11 var
-logs-multitool-f98x7:/# ls -lah /log_data/
+logs-multitool-b56z2:/# ls -lah /log_data/
 total 25M
 drwxrwxr-x   11 root     113         4.0K Dec  3 00:00 .
 drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 ..
@@ -184,8 +184,8 @@ drwx------    2 root     root        4.0K Aug 10 00:20 private
 -rw-r--r--    1 root     root       21.5K Feb 16 03:37 ubuntu-advantage.log
 drwxr-x---    2 root     adm         4.0K Nov 30 19:39 unattended-upgrades
 -rw-rw-r--    1 root     43          3.8K Dec  5 10:59 wtmp
-logs-multitool-f98x7:/#
-logs-multitool-f98x7:/# tail /log_data/syslog
+logs-multitool-b56z2:/#
+logs-multitool-b56z2:/# tail /log_data/syslog
 Feb 16 12:25:56 microk8s-03 microk8s.daemon-kubelite[743712]: I1208 20:25:56.399766  743712 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
 Feb 16 12:25:56 microk8s-03 microk8s.daemon-kubelite[743712]: I1208 20:25:56.400040  743712 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
 Feb 16 12:25:56 microk8s-03 microk8s.daemon-kubelite[743712]: I1208 20:25:56.400838  743712 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
@@ -196,7 +196,7 @@ Feb 16 12:26:15 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-2ed197ae890a8
 Feb 16 12:26:20 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.IKqaxX.mount: Deactivated successfully.
 Feb 16 12:26:30 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.aB6s2B.mount: Deactivated successfully.
 Feb 16 12:26:48 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.3ZNE31.mount: Deactivated successfully.
-logs-multitool-f98x7:/# exit
+logs-multitool-b56z2:/# exit
 ```
 Логи доступны, всё работает.
 
