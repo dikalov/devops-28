@@ -12,15 +12,15 @@ vagrant@server:~/manifests/05_dz_kuber_2.1$ kubectl apply -f ~/manifests/05_dz_k
 namespace/dz6 created
 vagrant@server:~/manifests/05_dz_kuber_2.1$ kubectl get ns
 NAME              STATUS   AGE
-kube-system       Active   7d23h
-kube-public       Active   7d23h
-kube-node-lease   Active   7d23h
-default           Active   7d23h
-lesson4           Active   7d23h
-ingress           Active   7d23h
-dz5               Active   3d12h
-lesson5           Active   3d6h
-dz6               Active   14s
+kube-system       Active   4d11h
+kube-public       Active   4d11h
+kube-node-lease   Active   4d11h
+default           Active   4d11h
+lesson4           Active   4d11h
+ingress           Active   4d11h
+dz5               Active   2d22h
+lesson5           Active   2d18h
+dz6               Active   15s
 ```
 
 
