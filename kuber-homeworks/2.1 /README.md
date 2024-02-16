@@ -114,6 +114,91 @@ exit
 ```
 Всё хорошо!
 ### Задание 2. Создать DaemonSet приложения, которое может прочитать логи ноды.
+1) Создать DaemonSet приложения, состоящего из multitool.
+2) Обеспечить возможность чтения файла /var/log/syslog кластера MicroK8S.
+3) Продемонстрировать возможность чтения файла изнутри пода.
+4) Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
+
+Запустим манифест, заходим в ПОД и проверим доступность логов ноды:
+```
+usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$ kubectl apply -f ~/manifests/05_dz_kuber_2.1/03_dms_multitool.yml
+daemonset.apps/logs-multitool created
+usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$ kubectl get pods -n dz6
+NAME                                     READY   STATUS    RESTARTS   AGE
+app-multitool-busybox-7bf96cc9b6-zsvkt   2/2     Running   0          22m
+logs-multitool-f98x7                     1/1     Running   0          5s
+usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$
+usrcon@cli-k8s-01:~/manifests/05_dz_kuber_2.1$ kubectl exec -n dz6 logs-multitool-f98x7 -it -- bash
+logs-multitool-f98x7:/# ls -lah /
+total 84K
+drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 .
+drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 ..
+drwxr-xr-x    1 root     root        4.0K Sep 14 11:11 bin
+drwx------    2 root     root        4.0K Sep 14 11:11 certs
+drwxr-xr-x    5 root     root         360 Feb 16 20:24 dev
+drwxr-xr-x    1 root     root        4.0K Sep 14 11:11 docker
+drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 etc
+drwxr-xr-x    2 root     root        4.0K Aug  7 13:09 home
+drwxr-xr-x    1 root     root        4.0K Sep 14 11:11 lib
+drwxrwxr-x   11 root     113         4.0K Dec  3 00:00 log_data
+drwxr-xr-x    5 root     root        4.0K Aug  7 13:09 media
+drwxr-xr-x    2 root     root        4.0K Aug  7 13:09 mnt
+drwxr-xr-x    2 root     root        4.0K Aug  7 13:09 opt
+dr-xr-xr-x  291 root     root           0 Feb 16 20:24 proc
+drwx------    2 root     root        4.0K Aug  7 13:09 root
+drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 run
+drwxr-xr-x    1 root     root        4.0K Sep 14 11:11 sbin
+drwxr-xr-x    2 root     root        4.0K Aug  7 13:09 srv
+dr-xr-xr-x   13 root     root           0 Feb 16 20:24 sys
+drwxrwxrwt    2 root     root        4.0K Aug  7 13:09 tmp
+drwxr-xr-x    1 root     root        4.0K Aug  7 13:09 usr
+drwxr-xr-x    1 root     root        4.0K Sep 14 11:11 var
+logs-multitool-f98x7:/# ls -lah /log_data/
+total 25M
+drwxrwxr-x   11 root     113         4.0K Dec  3 00:00 .
+drwxr-xr-x    1 root     root        4.0K Feb 16 20:24 ..
+-rw-r--r--    1 root     root       34.5K Feb 16 13:34 alternatives.log
+drwxr-xr-x    2 root     root        4.0K Feb 16 13:34 apt
+-rw-r-----    1 107      adm        33.0K Feb 16 20:17 auth.log
+-rw-r-----    1 107      adm        41.6K Dec  2 23:17 auth.log.1
+-rw-r--r--    1 root     root       63.0K Aug 10 00:17 bootstrap.log
+-rw-rw----    1 root     43             0 Aug 10 00:17 btmp
+-rw-r-----    1 root     adm         7.0K Nov 30 19:40 cloud-init-output.log
+-rw-r-----    1 107      adm       113.5K Nov 30 19:40 cloud-init.log
+drwxr-xr-x    2 root     root       12.0K Dec  8 20:24 containers
+drwxr-xr-x    2 root     root        4.0K Aug  2 15:53 dist-upgrade
+-rw-r-----    1 root     adm        54.9K Nov 30 19:40 dmesg
+-rw-r-----    1 root     adm        55.7K Nov 30 19:39 dmesg.0
+-rw-r--r--    1 root     root      583.5K Feb 16 13:34 dpkg.log
+-rw-r--r--    1 root     root       31.3K Nov 30 19:39 faillog
+drwxr-x---    4 root     adm         4.0K Nov 30 19:31 installer
+drwxr-sr-x    3 root     nginx       4.0K Nov 30 19:38 journal
+-rw-r-----    1 107      adm         2.5K Feb 16 20:24 kern.log
+-rw-r-----    1 107      adm       158.0K Dec  1 04:30 kern.log.1
+drwxr-xr-x    2 111      117         4.0K Nov 30 19:40 landscape
+-rw-rw-r--    1 root     43        285.4K Dec  5 10:59 lastlog
+drwxr-xr-x   21 root     root        4.0K Feb 16 20:24 pods
+drwx------    2 root     root        4.0K Aug 10 00:20 private
+-rw-r-----    1 107      adm        16.1M Feb 16 20:26 syslog
+-rw-r-----    1 107      adm         7.4M Dec  3 00:00 syslog.1
+-rw-r--r--    1 root     root       21.5K Feb 16 03:37 ubuntu-advantage.log
+drwxr-x---    2 root     adm         4.0K Nov 30 19:39 unattended-upgrades
+-rw-rw-r--    1 root     43          3.8K Dec  5 10:59 wtmp
+logs-multitool-f98x7:/#
+logs-multitool-f98x7:/# tail /log_data/syslog
+Feb 16 12:25:56 microk8s-03 microk8s.daemon-kubelite[743712]: I1208 20:25:56.399766  743712 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+Feb 16 12:25:56 microk8s-03 microk8s.daemon-kubelite[743712]: I1208 20:25:56.400040  743712 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+Feb 16 12:25:56 microk8s-03 microk8s.daemon-kubelite[743712]: I1208 20:25:56.400838  743712 handler.go:232] Adding GroupVersion crd.projectcalico.org v1 to ResourceManager
+Feb 16 12:26:00 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.8zgutl.mount: Deactivated successfully.
+Feb 16 12:26:04 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-2ed197ae890a8fa652c4b6e31f16e8b5ec173f5c2f0e300283be39a5f352f79d-runc.O5itWL.mount: Deactivated successfully.
+Feb 16 12:26:10 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.KKzTKe.mount: Deactivated successfully.
+Feb 16 12:26:15 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-2ed197ae890a8fa652c4b6e31f16e8b5ec173f5c2f0e300283be39a5f352f79d-runc.HcBysA.mount: Deactivated successfully.
+Feb 16 12:26:20 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.IKqaxX.mount: Deactivated successfully.
+Feb 16 12:26:30 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.aB6s2B.mount: Deactivated successfully.
+Feb 16 12:26:48 microk8s-03 systemd[1]: run-containerd-runc-k8s.io-380a585f5f2fbfd274fb1c3aa5fedb3ef5d5fefb359d3feaf4f4fe5c295caa2b-runc.3ZNE31.mount: Deactivated successfully.
+logs-multitool-f98x7:/# exit
+```
+Логи доступны, всё работает.
 
 
 
