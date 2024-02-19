@@ -6,6 +6,14 @@
 4) Удалить Deployment и PVC. Продемонстрировать, что после этого произошло с PV. Пояснить, почему.
 5) Продемонстрировать, что файл сохранился на локальном диске ноды. Удалить PV. Продемонстрировать что произошло с файлом после удаления PV. Пояснить, почему.
 6) Предоставить манифесты, а также скриншоты или вывод необходимых команд.
+```
+$ kubectl get deployment
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+pvc-deployment   1/1     1            1           17m
+$ kubectl get pod
+NAME                              READY   STATUS    RESTARTS   AGE
+pvc-deployment-67f79c66cd-dzdq7   2/2     Running   0          8m57s
+```
 
 
 
