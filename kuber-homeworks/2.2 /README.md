@@ -52,7 +52,16 @@ No resources found in default namespace.
 $ kubectl get pod
 No resources found in default namespace.
 ```
+Можно проверить, что pv и pvc остались.
+```
+$ kubectl get pvc
+NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+pvc-vol   Bound    pv       2Gi        RWO                           40m
 
+$ kubectl get pv
+NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM             STORAGECLASS   REASON   AGE
+pv     2Gi        RWO            Retain           Bound    default/pvc-vol                           39m
+```
 
 
 
