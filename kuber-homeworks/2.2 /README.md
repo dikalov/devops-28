@@ -69,8 +69,25 @@ pv     2Gi        RWO            Retain           Bound    default/pvc-vol      
 ### Задание 2. Создать Deployment приложения, которое может хранить файлы на NFS с динамическим созданием PV.
 1) Включить и настроить NFS-сервер на MicroK8S.
 2) Создать Deployment приложения состоящего из multitool, и подключить к нему PV, созданный автоматически на сервере NFS.
+[Файл Deployment2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment2.yaml)
+```
+$ kubectl apply -f file/deployment2.yaml 
+deployment.apps/nfs-deployment created
 
+$ kubectl apply -f file/pvc-vol2.yaml 
+persistentvolumeclaim/my-pvc-nfs created
 
+$ kubectl apply -f file/SCl.yaml 
+storageclass.storage.k8s.io/my-nfs1 created
+
+$kubectl get pvc
+NAME         STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+my-pvc-nfs   Bound    pvc-2765836c-c55a-84b6-c69c-3b231d15e1c2   1Gi        RWO            my-nfs1        50s
+
+$ kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                STORAGECLASS   REASON   AGE
+pvc-2765836c-c55a-84b6-c69c-3b231d15e1c2   1Gi        RWO            Delete           Bound    default/my-pvc-nfs   my-nfs1                 12s
+```
 3) Продемонстрировать возможность чтения и записи файла изнутри пода.
 4) Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
