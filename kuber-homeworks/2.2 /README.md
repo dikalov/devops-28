@@ -9,10 +9,10 @@
 ```
 $ kubectl get deployment
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-pvc-deployment   1/1     1            1           17m
+pvc-deployment   1/1     1            1           21m
 $ kubectl get pod
 NAME                              READY   STATUS    RESTARTS   AGE
-pvc-deployment-67f79c66cd-dzdq7   2/2     Running   0          8m57s
+pvc-deployment-38e52b74bf-dvdw7   2/2     Running   0          9m27s
 ```
 [Файл Deployment](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment.yaml)
 
