@@ -166,7 +166,8 @@ si.k8s.io not found in the list of registered CSI drivers
 
 Создадим файл на ноде в директории где автоматически создался pv. И потом проверим доступность внутри пода.
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/03793d46-11fa-48ee-97f8-b85f30065985)
+![image](https://github.com/dikalov/devops-28/assets/126553776/d40a01b7-8d4f-4067-88eb-e85fe56a7ce6)
+
 ```
 $ kubectl exec nfs-deployment-6e73392a69-ndza6 -c network-multitool -it -- sh
 / # cat static/test.txt
