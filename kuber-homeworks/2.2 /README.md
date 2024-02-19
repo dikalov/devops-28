@@ -163,6 +163,13 @@ si.k8s.io not found in the list of registered CSI drivers
   Normal   Started      6m40s                kubelet  Started container network-multitool
 ```
 3) Продемонстрировать возможность чтения и записи файла изнутри пода.
+
+Создадим файл на ноде в директории где автоматически создался pv. И потом проверим доступность внутри пода.
+```
+$ kubectl exec nfs-deployment-6e73392a69-ndza6 -c network-multitool -it -- sh
+/ # cat static/test.txt
+test 123456
+```
 4) Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
 
