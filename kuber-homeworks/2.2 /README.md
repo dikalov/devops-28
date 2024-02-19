@@ -20,7 +20,12 @@ $ kubectl get pv
 NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM             STORAGECLASS   REASON   AGE
 pv     2Gi        RWO            Retain           Bound    default/pvc-vol                           20m
 ```
-
+[Файл pv-vol](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/pv-vol.yaml)
+```
+$ kubectl get pvc
+NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+pvc-vol   Bound    pv       2Gi        RWO                           19m
+```
 
 
 
