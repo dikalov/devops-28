@@ -165,6 +165,8 @@ si.k8s.io not found in the list of registered CSI drivers
 3) Продемонстрировать возможность чтения и записи файла изнутри пода.
 
 Создадим файл на ноде в директории где автоматически создался pv. И потом проверим доступность внутри пода.
+
+![image](https://github.com/dikalov/devops-28/assets/126553776/03793d46-11fa-48ee-97f8-b85f30065985)
 ```
 $ kubectl exec nfs-deployment-6e73392a69-ndza6 -c network-multitool -it -- sh
 / # cat static/test.txt
