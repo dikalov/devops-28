@@ -174,10 +174,9 @@ test 123456
 
 [Файл deployment2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment2.yamlhttps://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment2.yaml)
 
-
 [Файл pvc-vol2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/pvc-vol2.yaml)
 
-
+[Файл SCl.yaml](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/SCl.yaml)
 
 
 
