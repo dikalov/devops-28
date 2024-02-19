@@ -41,6 +41,17 @@ Success!
 Success!
 Success!
 ```
+Проверим файл на Ноде, он расположен по пути path: /data/pv и удалим deployment.
+```
+$ kubectl delete deployment pvc-deployment
+deployment.apps "pvc-deployment" deleted
+
+
+$ kubectl get deployment
+No resources found in default namespace.
+$ kubectl get pod
+No resources found in default namespace.
+```
 
 
 
