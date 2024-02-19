@@ -15,7 +15,11 @@ NAME                              READY   STATUS    RESTARTS   AGE
 pvc-deployment-38e52b74bf-dvdw7   2/2     Running   0          9m27s
 ```
 [Файл Deployment](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment.yaml)
-
+```
+$ kubectl get pv
+NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM             STORAGECLASS   REASON   AGE
+pv     2Gi        RWO            Retain           Bound    default/pvc-vol                           20m
+```
 
 
 
