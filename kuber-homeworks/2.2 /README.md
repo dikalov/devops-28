@@ -14,6 +14,8 @@ $ kubectl get pod
 NAME                              READY   STATUS    RESTARTS   AGE
 pvc-deployment-67f79c66cd-dzdq7   2/2     Running   0          8m57s
 ```
+[Файл Deployment](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment.yaml)
+
 
 
 
