@@ -32,6 +32,15 @@ $ kubectl get pvc
 NAME      STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 pvc-vol   Bound    pv       2Gi        RWO                           21m
 ```
+Проверим на network-multitool файл success.txt.
+```
+$ kubectl exec pvc-deployment-67f79c66cd-dzdq7 -c network-multitool -it -- sh
+/ # cat static/success.txt
+Success!
+Success!
+Success!
+Success!
+```
 
 
 
