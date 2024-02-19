@@ -69,6 +69,7 @@ pv     2Gi        RWO            Retain           Bound    default/pvc-vol      
 ### Задание 2. Создать Deployment приложения, которое может хранить файлы на NFS с динамическим созданием PV.
 1) Включить и настроить NFS-сервер на MicroK8S.
 2) Создать Deployment приложения состоящего из multitool, и подключить к нему PV, созданный автоматически на сервере NFS.
+
 [Файл Deployment2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment2.yaml)
 ```
 $ kubectl apply -f file/deployment2.yaml 
