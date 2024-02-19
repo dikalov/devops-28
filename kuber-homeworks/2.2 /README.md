@@ -171,6 +171,8 @@ $ kubectl exec nfs-deployment-6e73392a69-ndza6 -c network-multitool -it -- sh
 test 123456
 ```
 4) Предоставить манифесты, а также скриншоты или вывод необходимых команд.
+[Файл deployment2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment2.yamlhttps://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.2%20/file%20/deployment2.yaml)
+
 
 
 
