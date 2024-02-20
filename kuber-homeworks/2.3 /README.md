@@ -211,6 +211,7 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
+Создадим ингресс и сервис
 
 
 
