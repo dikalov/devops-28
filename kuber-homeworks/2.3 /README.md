@@ -45,7 +45,7 @@ $ kubectl describe pod myapp-pod-6cb7edc758-we2dn
 Name:         myapp-pod-6cb7edc758-we2dn
 Namespace:    default
 Priority:     0
-Node:         microk8s/192.168.1.51
+Node:         microk8s/192.168.1.91
 Start Time:   Tue, 20 Feb 2024 14:35:51 +0300
 Labels:       app=myapp
               pod-template-hash=6cb7edc758
@@ -124,7 +124,7 @@ Events:                      <none>
 ```
 Проверим curl
 ```
-$ curl 192.168.1.51:32000
+$ curl 192.168.1.91:32000
 <html>
 <h1>Welcome</h1>
 </br>
