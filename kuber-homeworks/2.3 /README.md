@@ -155,5 +155,7 @@ root@microk8s:~# openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.k
 ```
 [tls.crt](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/tls.crt)
 
+[tls.key](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/tls.key)
+
 
 
