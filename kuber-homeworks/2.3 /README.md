@@ -122,6 +122,15 @@ Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists fo
                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:                      <none>
 ```
+Проверим curl
+```
+$ curl 192.168.1.51:32000
+<html>
+<h1>Welcome</h1>
+</br>
+<h1>Hi! This is a configmap Index file </h1>
+</html
+```
 
 
 
