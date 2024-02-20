@@ -22,23 +22,23 @@ service/myservice created
 
 $ kubectl get service
 NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
-kubernetes   ClusterIP   10.152.183.1     <none>        443/TCP                         38d
-myservice    NodePort    10.152.183.153   <none>        80:32000/TCP                    10s
+kubernetes   ClusterIP   10.151.163.1     <none>        443/TCP                         17d
+myservice    NodePort    10.151.163.181   <none>        80:32000/TCP                    31s
 
 $ kubectl apply -f file/index-html-configmap.yaml 
 configmap/index-html-configmap created
 
 $ kubectl get cm
 NAME                   DATA   AGE
-kube-root-ca.crt       1      38d
-index-html-configmap   1      13s
+kube-root-ca.crt       1      16d
+index-html-configmap   1      41s
 
 $ kubectl apply -f file/ConfigMapDep.yaml 
 deployment.apps/myapp-pod created
 
 $ kubectl get pod
 NAME                         READY   STATUS    RESTARTS   AGE
-myapp-pod-5bb5fbc745-tn2nx   1/1     Running   0          20s
+myapp-pod-6cb7edc758-we2dn   1/1     Running   0          42s
 ```
 
 
