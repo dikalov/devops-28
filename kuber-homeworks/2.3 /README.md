@@ -138,5 +138,5 @@ $ curl 192.168.1.91:32000
 ### Задание 2. Создать приложение с вашей веб-страницей, доступной по HTTPS
 Создать Deployment приложения, состоящего из Nginx.
 
-
+[Файл Deployment2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/ConfigMapDep2.yaml)
 
