@@ -46,20 +46,20 @@ Name:         myapp-pod-6cb7edc758-we2dn
 Namespace:    default
 Priority:     0
 Node:         microk8s/192.168.1.51
-Start Time:   Tue, 20 Feb 2023 14:35:51 +0300
+Start Time:   Tue, 20 Feb 2024 14:35:51 +0300
 Labels:       app=myapp
               pod-template-hash=6cb7edc758
-Annotations:  cni.projectcalico.org/containerID: 6803c4d2220a4f790c43726c26e6d887560768e0ac16eac9e691e7b10ca9b4db
-              cni.projectcalico.org/podIP: 10.1.128.221/32
-              cni.projectcalico.org/podIPs: 10.1.128.221/32
+Annotations:  cni.projectcalico.org/containerID: 6593hc885743hs4736wy47g588qh366rt32676g992hst4653bv264wj733jhg36
+              cni.projectcalico.org/podIP: 10.1.132.212/32
+              cni.projectcalico.org/podIPs: 10.1.132.212/32
 Status:       Running
-IP:           10.1.128.221
+IP:           10.1.132.212
 IPs:
-  IP:           10.1.128.221
+  IP:           10.1.132.212
 Controlled By:  ReplicaSet/myapp-pod-5bb5fbc745
 Init Containers:
   init-myservice:
-    Container ID:  containerd://deef8650813540c4b342bc27a2b5795d1a09c16e378adeb6249e6ff762a9a31a
+    Container ID:  containerd://deef8650813540c4b342bc27a2b5795d1a09c16e378ade57dhh4729ngh45gsf4
     Image:         busybox:1.28
     Image ID:      docker.io/library/busybox@sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47
     Port:          <none>
@@ -71,22 +71,22 @@ Init Containers:
     State:          Terminated
       Reason:       Completed
       Exit Code:    0
-      Started:      Tue, 21 Mar 2023 23:46:57 +0300
-      Finished:     Tue, 21 Mar 2023 23:46:57 +0300
+      Started:      Tue, 20 Feb 2024 14:35:56 +0300
+      Finished:     Tue, 20 Feb 2024 14:35:56 +0300
     Ready:          True
     Restart Count:  0
     Environment:    <none>
     Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-7r5c6 (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-6h2b2 (ro)
 Containers:
   network-multitool:
-    Container ID:   containerd://be469c26ac4d72641408d4bb37dda0fd3cc4fa9a2bf5816f21072d1436bc640a
+    Container ID:   containerd://be469c26ac4d72641408d4bb37dda03fdcc4fa9a2bf5816f21072d1436bc640a
     Image:          wbitt/network-multitool
-    Image ID:       docker.io/wbitt/network-multitool@sha256:82a5ea955024390d6b438ce22ccc75c98b481bf00e57c13e9a9cc1458eb92652
+    Image ID:       docker.io/wbitt/network-multitool@sha256:82a5ea955024390d6b43847g2ccc75c98b481bf00e57c13e9a9cc1458eb92652
     Port:           <none>
     Host Port:      <none>
     State:          Running
-      Started:      Tue, 21 Mar 2023 23:46:58 +0300
+      Started:      Tue, 20 Feb 2024 14:35:59 +0300
     Ready:          True
     Restart Count:  0
     Limits:
@@ -98,7 +98,7 @@ Containers:
     Environment:  <none>
     Mounts:
       /usr/share/nginx/html/ from nginx-index-file (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-7r5c6 (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-6h2b2 (ro)
 Conditions:
   Type              Status
   Initialized       True
