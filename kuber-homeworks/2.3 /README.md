@@ -131,6 +131,7 @@ $ curl 192.168.1.51:32000
 <h1>Hi! This is a configmap Index file </h1>
 </html
 ```
+И в браузере тоже:
 
 
 
