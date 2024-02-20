@@ -140,3 +140,8 @@ $ curl 192.168.1.91:32000
 
 [Файл Deployment2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/ConfigMapDep2.yaml)
 
+Тот же образ, что и в первом задании. Есть веб-сервер и есть страница, созданная с помощью ConfigMap
+
+Создать собственную веб-страницу и подключить её как ConfigMap к приложению.
+
+
