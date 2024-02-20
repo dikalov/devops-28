@@ -217,6 +217,8 @@ metadata:
 
 [myservice2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/myservice2.yaml)
 
+#### Предоставить манифесты, а также скриншоты или вывод необходимых команд.
+
 
 
 
