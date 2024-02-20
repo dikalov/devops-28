@@ -133,5 +133,7 @@ $ curl 192.168.1.51:32000
 ```
 И в браузере тоже:
 
+![image](https://github.com/dikalov/devops-28/assets/126553776/566d38fa-485e-476b-a128-37be1d53f5d9)
+
 
 
