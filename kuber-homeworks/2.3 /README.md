@@ -16,5 +16,29 @@
 
 [Файл configmap](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/index-html-configmap.yaml)
 
+```
+$ kubectl apply -f file/myservice.yaml 
+service/myservice created
+
+$ kubectl get service
+NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
+kubernetes   ClusterIP   10.152.183.1     <none>        443/TCP                         38d
+myservice    NodePort    10.152.183.153   <none>        80:32000/TCP                    10s
+
+$ kubectl apply -f file/index-html-configmap.yaml 
+configmap/index-html-configmap created
+
+$ kubectl get cm
+NAME                   DATA   AGE
+kube-root-ca.crt       1      38d
+index-html-configmap   1      13s
+
+$ kubectl apply -f file/ConfigMapDep.yaml 
+deployment.apps/myapp-pod created
+
+$ kubectl get pod
+NAME                         READY   STATUS    RESTARTS   AGE
+myapp-pod-5bb5fbc745-tn2nx   1/1     Running   0          20s
+```
 
 
