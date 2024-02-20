@@ -10,7 +10,7 @@
 
 Манифесты:
 
-
+[Файл Deployment](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/ConfigMapDep.yaml)
 
 
 
