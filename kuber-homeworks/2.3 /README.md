@@ -45,10 +45,10 @@ $ kubectl describe pod myapp-pod-6cb7edc758-we2dn
 Name:         myapp-pod-6cb7edc758-we2dn
 Namespace:    default
 Priority:     0
-Node:         microk8s/192.168.1.52
-Start Time:   Tue, 21 Mar 2023 23:46:53 +0300
+Node:         microk8s/192.168.1.51
+Start Time:   Tue, 20 Feb 2023 14:35:51 +0300
 Labels:       app=myapp
-              pod-template-hash=5bb5fbc745
+              pod-template-hash=6cb7edc758
 Annotations:  cni.projectcalico.org/containerID: 6803c4d2220a4f790c43726c26e6d887560768e0ac16eac9e691e7b10ca9b4db
               cni.projectcalico.org/podIP: 10.1.128.221/32
               cni.projectcalico.org/podIPs: 10.1.128.221/32
