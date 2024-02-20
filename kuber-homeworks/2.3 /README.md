@@ -136,12 +136,14 @@ $ curl 192.168.1.91:32000
 ![image](https://github.com/dikalov/devops-28/assets/126553776/566d38fa-485e-476b-a128-37be1d53f5d9)
 
 ### Задание 2. Создать приложение с вашей веб-страницей, доступной по HTTPS
-Создать Deployment приложения, состоящего из Nginx.
+#### Создать Deployment приложения, состоящего из Nginx.
 
 [Файл Deployment2](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/ConfigMapDep2.yaml)
 
 Тот же образ, что и в первом задании. Есть веб-сервер и есть страница, созданная с помощью ConfigMap
 
-Создать собственную веб-страницу и подключить её как ConfigMap к приложению.
+#### Создать собственную веб-страницу и подключить её как ConfigMap к приложению.
+
+[Configmap](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.3%20/file%20/index-html-configmap.yaml)
 
 
