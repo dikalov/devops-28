@@ -133,7 +133,7 @@ $ curl 192.168.1.91:32000
 ```
 И в браузере тоже:
 
-![image](https://github.com/dikalov/devops-28/assets/126553776/566d38fa-485e-476b-a128-37be1d53f5d9)
+![image](https://github.com/dikalov/devops-28/assets/126553776/5597f4cc-50fb-44ae-9600-058b325f30d0)
 
 ### Задание 2. Создать приложение с вашей веб-страницей, доступной по HTTPS
 #### Создать Deployment приложения, состоящего из Nginx.
