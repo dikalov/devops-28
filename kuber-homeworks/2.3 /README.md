@@ -220,6 +220,15 @@ metadata:
 #### Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
 Пропишем dns my-app.com в файл hosts и проверяем доступность измененной страницы.
+```
+$ curl -k https://my-app.com
+<html>
+<h1>Welcome</h1>
+</br>
+<h1>Hi! This is a configmap Index file </h1>
+</html
+```
+
 
 
 
