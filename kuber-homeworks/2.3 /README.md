@@ -229,8 +229,7 @@ $ curl -k https://my-app.com
 </html
 ```
 Ну и проверим страницу и наличие сертификата в браузере.
+![image](https://github.com/dikalov/devops-28/assets/126553776/b001eb94-255d-43e1-98a4-4f8ac3fd6640)
 
-
-
-
+Успех!
 
