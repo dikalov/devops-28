@@ -228,6 +228,7 @@ $ curl -k https://my-app.com
 <h1>Hi! This is a configmap Index file </h1>
 </html
 ```
+Ну и проверим страницу и наличие сертификата в браузере.
 
 
 
