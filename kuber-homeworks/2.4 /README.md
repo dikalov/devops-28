@@ -166,7 +166,7 @@ Containers:
     Ports:          80/TCP, 443/TCP
     Host Ports:     0/TCP, 0/TCP
     State:          Running
-      Started:      Wed, 29 Mar 2023 14:02:11 +0300
+      Started:      Thu, 22 Feb 2024 09:41:31 +0300
     Last State:     Terminated
       Reason:       Unknown
       Exit Code:    255
