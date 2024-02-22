@@ -231,6 +231,8 @@ Error from server (Forbidden): pods "myapp-pod-6c5b7a7cb2-4xgr6" is forbidden: U
 ##### Предоставьте манифесты и скриншоты и/или вывод необходимых команд.
 [Role](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.4%20/file/role.yaml)
 
+[Role binding](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.4%20/file/role_binding.yaml)
+
 
 
 
