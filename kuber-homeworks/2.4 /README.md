@@ -49,6 +49,15 @@ users:
 [Role](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.4%20/file/role.yaml)
 
 [Role_binding](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.4%20/file/role_binding.yaml)
+```
+$ kubectl apply -f rbac/role.yaml 
+role.rbac.authorization.k8s.io/pod-desc-logs created
+
+$ kubectl apply -f rbac/role_binding.yaml 
+rolebinding.rbac.authorization.k8s.io/pod-reader created
+```
+##### Предусмотрите права пользователя. Пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>).
+Для начала добавим в роль verbs: где ["watch", "list"]
 
 
 
