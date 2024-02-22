@@ -81,5 +81,14 @@ rules:
   - watch
   - list
 ```
+И проверим:
+```
+root@ansibleserv:~# kubectl config use-context dikalov-context
+Switched to context "dikalov-context".
+root@ansibleserv:~# kubectl describe pod myapp-pod-6c5b7a7cb2-4xgr6
+Error from server (Forbidden): pods "myapp-pod-6c5b7a7cb2-4xgr6" is forbidden: User "dikalov" cannot get resource "pods" in API group "" in the namespace "default"
+root@ansibleserv:~# kubectl logs myapp-pod-6c5b7a7cb2-4xgr6
+Error from server (Forbidden): pods "myapp-pod-6c5b7a7cb2-4xgr6" is forbidden: User "dikalov" cannot get resource "pods" in API group "" in the namespace "default"
+```
 
 
