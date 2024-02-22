@@ -216,10 +216,10 @@ Only logging the container characteristics:
 WBITT Network MultiTool (with NGINX) - myapp-pod-6c5b7a7cb2-4xgr6 -  - HTTP: 80 , HTTPS: 443 . (Formerly praqma/network-multitool)
 Replacing default HTTP port (80) with the value specified by the user - (HTTP_PORT: 80).
 Replacing default HTTPS port (443) with the value specified by the user - (HTTPS_PORT: 443).
-10.1.163.211 - - [29/Mar/2023:11:49:38 +0000] "GET / HTTP/1.1" 200 82 "-" "curl/7.78.0" "192.168.1.76"
-10.1.163.211 - - [29/Mar/2023:11:53:40 +0000] "GET / HTTP/1.1" 200 82 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.76"
-10.1.163.211 - - [29/Mar/2023:11:53:41 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "https://my-app.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.76"
-2023/03/29 11:53:41 [error] 12#12: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 10.1.128.246, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "my-app.com", referrer: "https://my-app.com/"
+10.1.163.211 - - [22/Feb/2024:09:08:32 +0000] "GET / HTTP/1.1" 200 82 "-" "curl/7.78.0" "192.168.1.89"
+10.1.163.211 - - [22/Feb/2024:09:10:29 +0000] "GET / HTTP/1.1" 200 82 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.89"
+10.1.163.211 - - [22/Feb/2024:09:10:29 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "https://my-app.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.89"
+2024/02/22 09:10:30 [error] 12#12: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 10.1.163.211, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "my-app.com", referrer: "https://my-app.com/"
 root@ansibleserv:~#
 ```
 
