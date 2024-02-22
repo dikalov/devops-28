@@ -224,6 +224,10 @@ root@ansibleserv:~#
 ```
 Команды logs и describe от уч. записи dikalov работают.
 
-Попробуем сразу после этого удалить pod.
+Попробуем сразу после этого удалить pod - получим ошибку для пользователя ```dikalov```.
+```
+Error from server (Forbidden): pods "myapp-pod-***-***" is forbidden: User "dikalov" cannot delete resource "pods" in API group "" in the namespace "default"
+```
+
 
 
