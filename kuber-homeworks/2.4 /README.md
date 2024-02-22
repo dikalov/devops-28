@@ -222,6 +222,8 @@ Replacing default HTTPS port (443) with the value specified by the user - (HTTPS
 2024/02/22 09:10:30 [error] 12#12: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 10.1.163.211, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "my-app.com", referrer: "https://my-app.com/"
 root@ansibleserv:~#
 ```
+Команды logs и describe от уч. записи dikalov работают.
 
+Попробуем сразу после этого удалить pod.
 
 
