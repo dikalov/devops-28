@@ -58,6 +58,28 @@ rolebinding.rbac.authorization.k8s.io/pod-reader created
 ```
 ##### Предусмотрите права пользователя. Пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>).
 Для начала добавим в роль verbs: где ["watch", "list"]
-
+```
+$ kubectl get role pod-desc-logs -o yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"Role","metadata":{"annotations":{},"name":"pod-desc-logs","namespace":"default"},"rules":[{"apiGroups":[""],"resources":["pods","pods/log"],"verbs":["watch","list"]}]}
+  creationTimestamp: "2024-02-22T09:18:19Z"
+  name: pod-desc-logs
+  namespace: default
+  resourceVersion: "285619"
+  uid: d085e6ab-6bca-6e52-ba06-160098cbd387
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/log
+  verbs:
+  - watch
+  - list
+```
 
 
