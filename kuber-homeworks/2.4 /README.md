@@ -46,6 +46,8 @@ users:
     client-key: cert/dikalov.key
 ```
 ##### Создайте роли и все необходимые настройки для пользователя.
+[Role](https://github.com/dikalov/devops-28/blob/main/kuber-homeworks/2.4%20/file/role.yaml)
+
 
 
 
