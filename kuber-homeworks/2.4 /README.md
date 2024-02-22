@@ -125,18 +125,18 @@ Name:             myapp-pod-6c5b7a7cb2-4xgr6
 Namespace:        default
 Priority:         0
 Service Account:  default
-Node:             microk8s/192.168.1.88
-Start Time:       Tue, 28 Mar 2023 14:35:09 +0300
+Node:             microk8s/192.168.1.91
+Start Time:       Wed, 21 Feb 2024 12:32:12 +0300
 Labels:           app=myapp
-                  pod-template-hash=7d9b9c8bd5
+                  pod-template-hash=6c5b7a7cb2
 Annotations:      cni.projectcalico.org/containerID: b436753fc7a2ed7ca3f356dd1e1a17ca45185a03ecc30c0f9842a3b24bfe9ae2
-                  cni.projectcalico.org/podIP: 10.1.128.247/32
-                  cni.projectcalico.org/podIPs: 10.1.128.247/32
+                  cni.projectcalico.org/podIP: 10.1.163.212/32
+                  cni.projectcalico.org/podIPs: 10.1.163.212/32
 Status:           Running
-IP:               10.1.128.247
+IP:               10.1.163.212
 IPs:
-  IP:           10.1.128.247
-Controlled By:  ReplicaSet/myapp-pod-7d9b9c8bd5
+  IP:           10.1.163.212
+Controlled By:  ReplicaSet/myapp-pod-6c5b7a7cb2
 Init Containers:
   init-myservice:
     Container ID:  containerd://12f8fd4562c238f87744c46958327323187818aa270ffc266387f701b6264a09
@@ -151,8 +151,8 @@ Init Containers:
     State:          Terminated
       Reason:       Completed
       Exit Code:    0
-      Started:      Wed, 29 Mar 2023 14:01:08 +0300
-      Finished:     Wed, 29 Mar 2023 14:02:11 +0300
+      Started:      Thu, 22 Feb 2024 09:41:35 +0300
+      Finished:     Thu, 22 Feb 2024 09:42:12 +0300
     Ready:          True
     Restart Count:  1
     Environment:    <none>
@@ -170,8 +170,8 @@ Containers:
     Last State:     Terminated
       Reason:       Unknown
       Exit Code:    255
-      Started:      Tue, 28 Mar 2023 14:35:10 +0300
-      Finished:     Wed, 29 Mar 2023 14:00:55 +0300
+      Started:      Wed, 21 Feb 2024 12:32:14 +0300
+      Finished:     Thu, 22 Feb 2024 09:40:57 +0300
     Ready:          True
     Restart Count:  1
     Limits:
@@ -216,9 +216,9 @@ Only logging the container characteristics:
 WBITT Network MultiTool (with NGINX) - myapp-pod-6c5b7a7cb2-4xgr6 -  - HTTP: 80 , HTTPS: 443 . (Formerly praqma/network-multitool)
 Replacing default HTTP port (80) with the value specified by the user - (HTTP_PORT: 80).
 Replacing default HTTPS port (443) with the value specified by the user - (HTTPS_PORT: 443).
-10.1.128.246 - - [29/Mar/2023:11:49:38 +0000] "GET / HTTP/1.1" 200 82 "-" "curl/7.78.0" "192.168.1.76"
-10.1.128.246 - - [29/Mar/2023:11:53:40 +0000] "GET / HTTP/1.1" 200 82 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.76"
-10.1.128.246 - - [29/Mar/2023:11:53:41 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "https://my-app.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.76"
+10.1.163.211 - - [29/Mar/2023:11:49:38 +0000] "GET / HTTP/1.1" 200 82 "-" "curl/7.78.0" "192.168.1.76"
+10.1.163.211 - - [29/Mar/2023:11:53:40 +0000] "GET / HTTP/1.1" 200 82 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.76"
+10.1.163.211 - - [29/Mar/2023:11:53:41 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "https://my-app.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" "192.168.1.76"
 2023/03/29 11:53:41 [error] 12#12: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 10.1.128.246, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "my-app.com", referrer: "https://my-app.com/"
 root@ansibleserv:~#
 ```
