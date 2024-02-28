@@ -266,7 +266,14 @@ demo-52a758b69-fsbac         1/1     Running   0             9m2s
 demo-52a758b69-er6fg         1/1     Running   0             27s
 demo-52a758b69-jdndv         1/1     Running   0             27s
 ```
-
+Удаляем наш helm demo1, потом создаём новый в namespace по условию задачи
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm uninstall demo1
+release "demo1" uninstalled
+root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod
+NAME                         READY   STATUS    RESTARTS       AGE
+myapp-pod-7d9b9c8bd5-5xpc7   1/1     Running   3 (118m ago)   11d
+```
 
 
 
