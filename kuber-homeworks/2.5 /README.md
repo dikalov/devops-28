@@ -201,7 +201,7 @@ spec:
 root@ansibleserv:~/helm/40-helm/01-templating/charts#
 root@ansibleserv:~/helm/40-helm/01-templating/charts# helm install demo1 01-simple
 NAME: demo1
-LAST DEPLOYED: Sat Apr  8 20:22:24 2023
+LAST DEPLOYED: Wed Feb  28 12:11:31 2023
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
@@ -216,7 +216,7 @@ Deployed version 1.19.0.
 root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get all
 NAME                             READY   STATUS    RESTARTS      AGE
 pod/myapp-pod-7d9b9c8bd5-5xpc7   1/1     Running   3 (76m ago)   11d
-pod/demo-69c897c87-jdcrj         1/1     Running   0             29s
+pod/demo-52a758b69-fsbac         1/1     Running   0             21s
 
 NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
 service/kubernetes   ClusterIP   10.152.183.1     <none>        443/TCP                         56d
@@ -232,7 +232,7 @@ deployment.apps/demo        1/1     1            1           30s
 
 NAME                                   DESIRED   CURRENT   READY   AGE
 replicaset.apps/myapp-pod-7d9b9c8bd5   1         1         1       11d
-replicaset.apps/demo-69c897c87         1         1         1       30s
+replicaset.apps/demo-52a758b69         1         1         1       30s
 ```
 
 
