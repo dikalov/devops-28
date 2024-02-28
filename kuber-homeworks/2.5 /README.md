@@ -148,6 +148,92 @@ root@ansibleserv:~/helm/40-helm/01-templating/charts#
 2. Одну версию в namespace=app1, вторую версию в том же неймспейсе, третью версию в namespace=app2.
 3. Продемонстрируйте результат.
 
+Для начала, проверим:
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm template 01-simple
+---
+# Source: hard/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  ports:
+    - port: 80
+      name: http
+  selector:
+    app: demo
+---
+# Source: hard/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - name: hard
+          image: "nginx:1.19.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+root@ansibleserv:~/helm/40-helm/01-templating/charts#
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm install demo1 01-simple
+NAME: demo1
+LAST DEPLOYED: Sat Apr  8 20:22:24 2023
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+---------------------------------------------------------
+
+Content of NOTES.txt appears after deploy.
+Deployed version 1.19.0.
+
+---------------------------------------------------------
+root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get all
+NAME                             READY   STATUS    RESTARTS      AGE
+pod/myapp-pod-7d9b9c8bd5-5xpc7   1/1     Running   3 (76m ago)   11d
+pod/demo-69c897c87-jdcrj         1/1     Running   0             29s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
+service/kubernetes   ClusterIP   10.152.183.1     <none>        443/TCP                         56d
+service/np-mysvc     NodePort    10.152.183.210   <none>        9001:30080/TCP,9002:32080/TCP   44d
+service/fe-svc       ClusterIP   10.152.183.119   <none>        80/TCP                          43d
+service/be-svc       ClusterIP   10.152.183.234   <none>        80/TCP                          43d
+service/myservice    NodePort    10.152.183.102   <none>        80:32000/TCP                    11d
+service/demo         ClusterIP   10.152.183.112   <none>        80/TCP                          29s
+
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/myapp-pod   1/1     1            1           11d
+deployment.apps/demo        1/1     1            1           30s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/myapp-pod-7d9b9c8bd5   1         1         1       11d
+replicaset.apps/demo-69c897c87         1         1         1       30s
+```
 
 
 
