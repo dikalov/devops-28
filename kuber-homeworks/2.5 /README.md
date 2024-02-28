@@ -314,7 +314,11 @@ root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod -n app2
 NAME                   READY   STATUS    RESTARTS   AGE
 demo-52a758b69-3y6qf   1/1     Running   0          1m47s
 ```
-
-
-
+Удаляем эти хелмы:
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm uninstall demo2 --namespace app1
+release "demo2" uninstalled
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm uninstall demo2 --namespace app2
+release "demo2" uninstalled
+```
 
