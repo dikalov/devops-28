@@ -215,23 +215,23 @@ Deployed version 1.19.0.
 ---------------------------------------------------------
 root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get all
 NAME                             READY   STATUS    RESTARTS      AGE
-pod/myapp-pod-7d9b9c8bd5-5xpc7   1/1     Running   3 (76m ago)   11d
-pod/demo-52a758b69-fsbac         1/1     Running   0             21s
+pod/myapp-pod-6c5b7a7cb2-4xgr6   1/1     Running   3 (76m ago)   6d
+pod/demo-52a758b69-fsbac         1/1     Running   0             17s
 
 NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
-service/kubernetes   ClusterIP   10.152.183.1     <none>        443/TCP                         56d
-service/np-mysvc     NodePort    10.152.183.210   <none>        9001:30080/TCP,9002:32080/TCP   44d
-service/fe-svc       ClusterIP   10.152.183.119   <none>        80/TCP                          43d
-service/be-svc       ClusterIP   10.152.183.234   <none>        80/TCP                          43d
-service/myservice    NodePort    10.152.183.102   <none>        80:32000/TCP                    11d
-service/demo         ClusterIP   10.152.183.112   <none>        80/TCP                          29s
+service/kubernetes   ClusterIP   10.163.121.1     <none>        443/TCP                         48d
+service/np-mysvc     NodePort    10.163.121.212   <none>        9001:30080/TCP,9002:32080/TCP   36d
+service/fe-svc       ClusterIP   10.163.121.160   <none>        80/TCP                          35d
+service/be-svc       ClusterIP   10.163.121.212   <none>        80/TCP                          35d
+service/myservice    NodePort    10.163.121.120   <none>        80:32000/TCP                    10d
+service/demo         ClusterIP   10.163.121.118   <none>        80/TCP                          31s
 
 NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/myapp-pod   1/1     1            1           11d
+deployment.apps/myapp-pod   1/1     1            1           6d
 deployment.apps/demo        1/1     1            1           30s
 
 NAME                                   DESIRED   CURRENT   READY   AGE
-replicaset.apps/myapp-pod-7d9b9c8bd5   1         1         1       11d
+replicaset.apps/myapp-pod-6c5b7a7cb2   1         1         1       6d
 replicaset.apps/demo-52a758b69         1         1         1       30s
 ```
 
