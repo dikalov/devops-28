@@ -239,7 +239,33 @@ root@ansibleserv:~/helm/40-helm/01-templating/charts# helm list
 NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
 demo1   default         1               2024-02-28 12:56:43.564257789 +0300 MSK deployed        hard-0.1.2      1.19.0
 ```
+Теперь можно запустить несколько версий приложения.
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm upgrade demo1 --set replicaCount=3 01-simple
+Release "demo1" has been upgraded. Happy Helming!
+NAME: demo1
+LAST DEPLOYED: Wed Feb  28 13:05:47 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+NOTES:
+---------------------------------------------------------
 
+Content of NOTES.txt appears after deploy.
+Deployed version 1.19.0.
+
+---------------------------------------------------------
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm list
+NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+demo1   default         2               2024-02-28 13:05:47.969875869 +0300 MSK deployed        hard-0.1.2      1.19.0
+root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod
+NAME                         READY   STATUS    RESTARTS      AGE
+myapp-pod-6c5b7a7cb2-4xgr6   1/1     Running   3 (89m ago)   6d
+demo-52a758b69-fsbac         1/1     Running   0             9m2s
+demo-52a758b69-er6fg         1/1     Running   0             27s
+demo-52a758b69-jdndv         1/1     Running   0             27s
+```
 
 
 
