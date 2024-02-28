@@ -234,7 +234,11 @@ NAME                                   DESIRED   CURRENT   READY   AGE
 replicaset.apps/myapp-pod-6c5b7a7cb2   1         1         1       6d
 replicaset.apps/demo-52a758b69         1         1         1       30s
 ```
-
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm list
+NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART           APP VERSION
+demo1   default         1               2024-02-28 12:56:43.564257789 +0300 MSK deployed        hard-0.1.2      1.19.0
+```
 
 
 
