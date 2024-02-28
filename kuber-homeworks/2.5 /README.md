@@ -201,7 +201,7 @@ spec:
 root@ansibleserv:~/helm/40-helm/01-templating/charts#
 root@ansibleserv:~/helm/40-helm/01-templating/charts# helm install demo1 01-simple
 NAME: demo1
-LAST DEPLOYED: Wed Feb  28 12:11:31 2023
+LAST DEPLOYED: Wed Feb  28 12:11:31 2024
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
