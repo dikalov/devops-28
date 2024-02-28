@@ -274,6 +274,37 @@ root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod
 NAME                         READY   STATUS    RESTARTS       AGE
 myapp-pod-6c5b7a7cb2-4xgr6   1/1     Running   3 (105m ago)   6d
 ```
+Создаём новый:
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm install demo2 --namespace app1 --create-namespace --wait --set replicaCount=2 01-simple                 NAME: demo2
+LAST DEPLOYED: Wed Feb  28 14:17:42 2024
+NAMESPACE: app1
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+---------------------------------------------------------
+
+Content of NOTES.txt appears after deploy.
+Deployed version 1.19.0.
+
+---------------------------------------------------------
+
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm install demo2 --namespace app2 --create-namespace --wait --set replicaCount=1 01-simple
+NAME: demo2
+LAST DEPLOYED: Wed Feb  28 14:19:57 2024
+NAMESPACE: app2
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+---------------------------------------------------------
+
+Content of NOTES.txt appears after deploy.
+Deployed version 1.19.0.
+
+---------------------------------------------------------
+```
 
 
 
