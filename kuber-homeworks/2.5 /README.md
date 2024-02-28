@@ -79,6 +79,71 @@ spec:
 В переменных чарта редактируем образ приложения
 
 В файле Chart.yaml изменим номер версии приложения
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# nano 01-simple/Chart.yaml
+root@ansibleserv:~/helm/40-helm/01-templating/charts# cat 01-simple/Chart.yaml
+apiVersion: v2
+name: hard
+description: A minimal chart for demo
+
+type: application
+
+version: 0.1.2
+appVersion: "1.19.0"
+```
+Проверим шаблон:
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# helm template 01-simple
+---
+# Source: hard/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  ports:
+    - port: 80
+      name: http
+  selector:
+    app: demo
+---
+# Source: hard/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - name: hard
+          image: "nginx:1.19.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+root@ansibleserv:~/helm/40-helm/01-templating/charts#
+```
+
 
 
 
