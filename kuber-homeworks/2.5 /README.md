@@ -308,11 +308,11 @@ Deployed version 1.19.0.
 ```
 root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod -n app1
 NAME                   READY   STATUS    RESTARTS   AGE
-demo-69c897c87-llrgv   1/1     Running   0          4m52s
-demo-69c897c87-2wjfd   1/1     Running   0          4m52s
+demo-52a758b69-kjfdb   1/1     Running   0          3m23s
+demo-52a758b69-6rtac   1/1     Running   0          3m23s
 root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod -n app2
 NAME                   READY   STATUS    RESTARTS   AGE
-demo-69c897c87-4jj8x   1/1     Running   0          2m18s
+demo-52a758b69-3y6qf   1/1     Running   0          1m47s
 ```
 
 
