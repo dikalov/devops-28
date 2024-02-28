@@ -305,6 +305,15 @@ Deployed version 1.19.0.
 
 ---------------------------------------------------------
 ```
+```
+root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod -n app1
+NAME                   READY   STATUS    RESTARTS   AGE
+demo-69c897c87-llrgv   1/1     Running   0          4m52s
+demo-69c897c87-2wjfd   1/1     Running   0          4m52s
+root@ansibleserv:~/helm/40-helm/01-templating/charts# kubectl get pod -n app2
+NAME                   READY   STATUS    RESTARTS   AGE
+demo-69c897c87-4jj8x   1/1     Running   0          2m18s
+```
 
 
 
